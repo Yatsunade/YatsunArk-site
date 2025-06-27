@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Merci pour ton achat !</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #f0f0f0;
+      overflow-x: hidden;
+      background: #121212;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Fond tropical flouté */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('images/tropical_background.png.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(6px);
+      z-index: -2;
+      transform: scale(1.05);
+    }
+
+    /* Overlay sombre */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    header {
+      margin-bottom: 40px;
+    }
+
+    header img {
+      width: 180px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 500px;
+      background: rgba(31, 31, 31, 0.85);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+      color: #f0f0f0;
+    }
+
+    h1 {
+      color: #00bfff;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    a.discord-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      font-weight: bold;
+      color: #7289da;
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+
+    a.discord-link:hover {
+      color: #5865f2;
+    }
+
+    a.discord-link svg {
+      width: 32px;
+      height: 32px;
+      margin-left: 8px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/Logo_Yatsu.png.png" alt="Logo Yatsun'Ark" />
+  </header>
+
+  <div class="container">
+    <h1>Merci pour ton achat !</h1>
+    <p>Rejoins le discord pour envoyer ton nom de joueur + map afin de recevoir ta commande !</p>
+    <a class="discord-link" href="https://discord.gg/aJa4UgJmCR" target="_blank" rel="noopener noreferrer">
+      Rejoins le Discord
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 245 240">
+        <path d="M104.4 105.7c-5.7 0-10.3 5-10.3 11.1 0 6.1 4.6 11.1 10.3 11.1 5.7 0 10.3-5 10.3-11.1 0-6.1-4.6-11.1-10.3-11.1zm36.2 0c-5.7 0-10.3 5-10.3 11.1 0 6.1 4.6 11.1 10.3 11.1 5.7 0 10.3-5 10.3-11.1 0-6.1-4.6-11.1-10.3-11.1z"/>
+        <path d="M189.5 20h-134C39.7 20 20 39.7 20 67.5v105c0 27.8 19.7 47.5 47.5 47.5h105c27.8 0 47.5-19.7 47.5-47.5v-105C237 39.7 217.3 20 189.5 20zm-43.5 138s-4.1-4.8-7.5-9.1c15-4.3 20.7-13.7 20.7-13.7-4.7 3.1-9.2 5.3-13.2 6.8-5.7 2.4-11.2 4-16.6 4.8-11 1.9-21 1.4-29.4-.1-6.4-1.1-11.9-2.9-16.6-4.8-2.7-1.1-5.6-2.4-8.6-4.1-.4-.2-.8-.4-1.2-.6-0.3-.2-.5-.3-.8-.5-3-1.6-4.7-2.7-4.7-2.7s5.6 9 20.3 13.7c-3.3 4.3-7.5 9.1-7.5 9.1-24.8-0.8-34.2-17-34.2-17 0-36 16.1-65.3 16.1-65.3 16.1-12.1 31.3-11.8 31.3-11.8l1.1 1.3c-20 5.7-29.3 14.3-29.3 14.3s2.5-1.4 6.7-3.4c12.2-5.8 21.9-7.3 25.8-7.7 0.7-.1 1.3-.2 2-.2 7.2-.9 15.1-1.1 23.2-.1 11.3 1.5 23.4 6.4 23.4 6.4s-9-8.4-28-14.1l1.6-1.9s15.2-.3 31.3 11.8c0 0 16.1 29.2 16.1 65.3 0 0-9.5 16.2-34.3 17z"/>
+      </svg>
+    </a>
+  </div>
+</body>
+</html>
