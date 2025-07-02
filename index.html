@@ -3,78 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yatsun'Ark PvE - Packs Accordéon</title>
+  <title>Yatsun'Ark PvE</title>
   <style>
-    body {
+    body, html {
+      margin: 0; padding: 0; height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #111;
-      color: #eee;
-      padding: 30px;
+      color: #f0f0f0;
+      overflow-x: hidden;
+      background: #000;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('images/tropical_background.png.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(6px);
+      z-index: -2;
+      transform: scale(1.05);
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+    header {
+      background-color: transparent;
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      width: 180px;
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      color: #00bfff;
+    }
+    header p {
+      margin-top: 6px;
+      font-size: 1.2rem;
+      color: #ddd;
     }
 
-    .container {
-      display: flex;
-      gap: 20px;
+    main {
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 30px auto 50px auto;
+      padding: 0 20px;
+    }
+
+    .accordion-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
-    .card {
-      background: rgba(31, 31, 31, 0.85);
+    .accordion {
+      background-color: rgba(31, 31, 31, 0.85);
       border-radius: 12px;
+      width: 32%;
+      min-width: 280px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-      width: 300px;
-      cursor: pointer;
-      user-select: none;
       color: #fff;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
-      transition: background-color 0.3s;
+      align-items: center;
+      transition: background-color 0.3s ease;
     }
-
-    .card:hover {
-      background-color: rgba(0, 191, 255, 0.1);
+    .accordion:hover {
+      background-color: rgba(31, 31, 31, 1);
     }
-
-    .card img.pack-img {
+    .accordion img {
       width: 100%;
-      border-radius: 12px 12px 0 0;
-      pointer-events: none;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      object-fit: cover;
+      max-height: 180px;
+    }
+    .accordion h2 {
+      margin: 10px 0 10px 0;
+      color: #00bfff;
+      font-size: 1.5rem;
+      text-align: center;
     }
 
-    .card h2 {
-      margin: 0;
-      padding: 15px 20px;
-      background-color: #007acc;
-      font-size: 1.4rem;
-    }
-
-    .card h2::after {
-      content: '+';
-      float: right;
-      transition: transform 0.3s;
-    }
-
-    .card.active h2::after {
-      content: '−';
-    }
-
-    .content {
-      padding: 15px 20px;
-      display: none;
-      text-align: left;
+    .panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      width: 90%;
+      margin-bottom: 15px;
       color: #ccc;
-      flex-grow: 1;
+      text-align: left;
     }
-
-    .card.active .content {
-      display: block;
-    }
-
-    ul {
+    .panel ul {
       padding-left: 20px;
-      margin: 0 0 15px 0;
+      margin: 0;
+    }
+    .panel.open {
+      max-height: 500px; /* assez pour tout afficher */
     }
 
     .buy-button {
@@ -85,85 +119,133 @@
       border-radius: 6px;
       cursor: pointer;
       font-size: 1rem;
-      width: 100%;
       transition: background-color 0.3s ease;
+      margin-bottom: 15px;
+      align-self: center;
     }
-
     .buy-button:hover {
       background-color: #009acc;
     }
 
-    @media (max-width: 768px) {
-      .container {
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    footer img {
+      width: 48px;
+      height: 48px;
+    }
+    footer p {
+      color: #aaa;
+      margin-top: 8px;
+    }
+    .cgv-link {
+      color: #00bfff;
+      text-decoration: underline;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    .cgv-link:hover {
+      color: #66d3ff;
+    }
+
+    @media(max-width: 960px) {
+      .accordion-container {
         flex-direction: column;
         align-items: center;
       }
-      .card {
-        width: 100%;
-        max-width: 400px;
+      .accordion {
+        width: 90%;
       }
     }
   </style>
 </head>
 <body>
-  <main class="container">
+  <header>
+    <img src="images/Logo_Yatsu.png.png" alt="Logo Yatsun'Ark" />
+    <h1>Yatsun'ARK PvE</h1>
+    <p>Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
+  </header>
 
-    <div class="card">
-      <img class="pack-img" src="images/pack1.png" alt="Pack VIP Tiers 1">
-      <h2>Pack VIP Tiers 1 – 7 €</h2>
-      <div class="content">
-        <ul>
-          <li>2 ✦ Potions de mutation</li>
-          <li>2 ✦ Potions Taming</li>
-          <li>2 ✦ Potions Instant Adulte</li>
-          <li>Dino à 2 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
-        </ul>
-        <a href="https://ko-fi.com/s/6faa608c24" target="_blank" rel="noopener noreferrer">
-          <button class="buy-button">Acheter - 7€</button>
-        </a>
+  <main>
+    <div class="accordion-container">
+      <div class="accordion">
+        <img src="images/pack1.png" alt="Pack VIP Tier 1" />
+        <h2>Pack VIP Tiers 1 – 7 €</h2>
+        <div class="panel">
+          <ul>
+            <li>2 ✦ Potions de mutation</li>
+            <li>2 ✦ Potions Taming</li>
+            <li>2 ✦ Potions Instant Adulte</li>
+            <li>Dino à 2 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
+          </ul>
+          <a href="https://ko-fi.com/s/6faa608c24" target="_blank" rel="noopener noreferrer">
+            <button class="buy-button">Acheter - 7€</button>
+          </a>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <img src="images/pack2.png" alt="Pack VIP Tier 2" />
+        <h2>Pack VIP Tiers 2 – 12 €</h2>
+        <div class="panel">
+          <ul>
+            <li>4 ✦ Potions de mutation</li>
+            <li>4 ✦ Potions Taming</li>
+            <li>4 ✦ Potions Instant Adulte</li>
+            <li>Dino à 4 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
+          </ul>
+          <a href="https://ko-fi.com/s/8d80614cd4" target="_blank" rel="noopener noreferrer">
+            <button class="buy-button">Acheter - 12€</button>
+          </a>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <img src="images/pack3.png" alt="Pack VIP Tier 3" />
+        <h2>Pack VIP Tiers 3 – 20 €</h2>
+        <div class="panel">
+          <ul>
+            <li>6 ✦ Potions de mutation</li>
+            <li>6 ✦ Potions Taming</li>
+            <li>6 ✦ Potions Instant Adulte</li>
+            <li>1 ✦ Lust Potion (reset timer repro sur 1 femelle)</li>
+            <li>Dino à 6 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
+          </ul>
+          <a href="https://ko-fi.com/s/f5511481c6" target="_blank" rel="noopener noreferrer">
+            <button class="buy-button">Acheter - 20€</button>
+          </a>
+        </div>
       </div>
     </div>
-
-    <div class="card">
-      <img class="pack-img" src="images/pack2.png" alt="Pack VIP Tiers 2">
-      <h2>Pack VIP Tiers 2 – 12 €</h2>
-      <div class="content">
-        <ul>
-          <li>4 ✦ Potions de mutation</li>
-          <li>4 ✦ Potions Taming</li>
-          <li>4 ✦ Potions Instant Adulte</li>
-          <li>Dino à 4 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
-        </ul>
-        <a href="https://ko-fi.com/s/8d80614cd4" target="_blank" rel="noopener noreferrer">
-          <button class="buy-button">Acheter - 12€</button>
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img class="pack-img" src="images/pack3.png" alt="Pack VIP Tiers 3">
-      <h2>Pack VIP Tiers 3 – 20 €</h2>
-      <div class="content">
-        <ul>
-          <li>6 ✦ Potions de mutation</li>
-          <li>6 ✦ Potions Taming</li>
-          <li>6 ✦ Potions Instant Adulte</li>
-          <li>1 ✦ Lust Potion (reset timer repro sur 1 femelle)</li>
-          <li>Dino à 6 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
-        </ul>
-        <a href="https://ko-fi.com/s/f5511481c6" target="_blank" rel="noopener noreferrer">
-          <button class="buy-button">Acheter - 20€</button>
-        </a>
-      </div>
-    </div>
-
   </main>
 
+  <footer>
+    <p>
+      <a href="https://yatsunark-cvg.netlify.app/" target="_blank" class="cgv-link">
+        Conditions Générales de Vente
+      </a>
+    </p>
+    <a href="https://discord.gg/aJa4UgJmCR" target="_blank" rel="noopener noreferrer">
+      <img src="images/discord_icon.png.png" alt="Discord" />
+    </a>
+    <p>Rejoins notre communauté sur Discord !</p>
+  </footer>
+
   <script>
-    document.querySelectorAll('.card h2').forEach(title => {
-      title.addEventListener('click', () => {
-        const card = title.parentElement;
-        card.classList.toggle('active');
+    document.querySelectorAll('.accordion').forEach(acc => {
+      acc.addEventListener('click', function() {
+        const panel = this.querySelector('.panel');
+        if (panel.classList.contains('open')) {
+          panel.classList.remove('open');
+        } else {
+          // Close others
+          document.querySelectorAll('.panel.open').forEach(openPanel => openPanel.classList.remove('open'));
+          panel.classList.add('open');
+          panel.scrollIntoView({behavior: "smooth", block: "center"});
+        }
       });
     });
   </script>
