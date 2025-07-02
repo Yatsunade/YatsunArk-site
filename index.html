@@ -3,103 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yatsun'Ark PvE</title>
+  <title>Yatsun'Ark PvE - Packs Accordéon</title>
   <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
+    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #f0f0f0;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: url('images/tropical_background.png.png');
-      background-size: cover;
-      background-position: center;
-      filter: blur(6px);
-      z-index: -2;
-      transform: scale(1.05);
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: -1;
-    }
-
-    header {
-      background-color: transparent;
-      padding: 20px;
-      text-align: center;
-    }
-
-    header img {
-      width: 180px;
-      display: block;
-      margin: 0 auto 10px auto;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
-      color: #00bfff;
-    }
-
-    header p {
-      margin-top: 6px;
-      font-size: 1.2rem;
-      color: #ddd;
+      background: #111;
+      color: #eee;
+      padding: 30px;
     }
 
     .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: flex;
       gap: 20px;
-      padding: 30px;
       max-width: 1200px;
-      margin: 0 auto 50px auto;
+      margin: 0 auto;
+      flex-wrap: wrap;
     }
 
     .card {
-      background-color: rgba(31, 31, 31, 0.85);
+      background: rgba(31, 31, 31, 0.85);
       border-radius: 12px;
-      padding: 20px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-      text-align: center;
+      width: 300px;
+      cursor: pointer;
+      user-select: none;
       color: #fff;
       display: flex;
       flex-direction: column;
+      transition: background-color 0.3s;
+    }
+
+    .card:hover {
+      background-color: rgba(0, 191, 255, 0.1);
     }
 
     .card img.pack-img {
       width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 12px;
+      border-radius: 12px 12px 0 0;
+      pointer-events: none;
     }
 
     .card h2 {
-      margin-top: 0;
-      color: #00bfff;
+      margin: 0;
+      padding: 15px 20px;
+      background-color: #007acc;
+      font-size: 1.4rem;
     }
 
-    .card ul {
+    .card h2::after {
+      content: '+';
+      float: right;
+      transition: transform 0.3s;
+    }
+
+    .card.active h2::after {
+      content: '−';
+    }
+
+    .content {
+      padding: 15px 20px;
+      display: none;
       text-align: left;
-      padding-left: 20px;
-      margin-bottom: 10px;
       color: #ccc;
+      flex-grow: 1;
     }
 
-    .card a {
-      margin-top: auto;
-      align-self: center;
+    .card.active .content {
+      display: block;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 0 0 15px 0;
     }
 
     .buy-button {
@@ -110,6 +85,7 @@
       border-radius: 6px;
       cursor: pointer;
       font-size: 1rem;
+      width: 100%;
       transition: background-color 0.3s ease;
     }
 
@@ -117,106 +93,79 @@
       background-color: #009acc;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    footer img {
-      width: 48px;
-      height: 48px;
-    }
-
-    footer p {
-      color: #aaa;
-      margin-top: 8px;
-    }
-
-    .cgv-link {
-      color: #00bfff;
-      text-decoration: underline;
-      font-size: 0.95rem;
-      margin-bottom: 10px;
-      display: inline-block;
-    }
-
-    .cgv-link:hover {
-      color: #66d3ff;
-    }
-
     @media (max-width: 768px) {
       .container {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        width: 100%;
+        max-width: 400px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="images/Logo_Yatsu.png.png" alt="Logo Yatsun'Ark" />
-    <h1>Yatsun'ARK PvE</h1>
-    <p>Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
-  </header>
-
   <main class="container">
-    <!-- Pack 1 -->
+
     <div class="card">
       <img class="pack-img" src="images/pack1.png" alt="Pack VIP Tiers 1">
       <h2>Pack VIP Tiers 1 – 7 €</h2>
-      <ul>
-        <li>2 ✦ Potions de mutation</li>
-        <li>2 ✦ Potions Taming</li>
-        <li>2 ✦ Potions Instant Adulte</li>
-        <li>Dino à 2 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
-      </ul>
-      <a href="https://ko-fi.com/s/6faa608c24" target="_blank" rel="noopener noreferrer">
-        <button class="buy-button">Acheter - 7€</button>
-      </a>
+      <div class="content">
+        <ul>
+          <li>2 ✦ Potions de mutation</li>
+          <li>2 ✦ Potions Taming</li>
+          <li>2 ✦ Potions Instant Adulte</li>
+          <li>Dino à 2 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
+        </ul>
+        <a href="https://ko-fi.com/s/6faa608c24" target="_blank" rel="noopener noreferrer">
+          <button class="buy-button">Acheter - 7€</button>
+        </a>
+      </div>
     </div>
 
-    <!-- Pack 2 -->
     <div class="card">
       <img class="pack-img" src="images/pack2.png" alt="Pack VIP Tiers 2">
       <h2>Pack VIP Tiers 2 – 12 €</h2>
-      <ul>
-        <li>4 ✦ Potions de mutation</li>
-        <li>4 ✦ Potions Taming</li>
-        <li>4 ✦ Potions Instant Adulte</li>
-        <li>Dino à 4 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
-      </ul>
-      <a href="https://ko-fi.com/s/8d80614cd4" target="_blank" rel="noopener noreferrer">
-        <button class="buy-button">Acheter - 12€</button>
-      </a>
+      <div class="content">
+        <ul>
+          <li>4 ✦ Potions de mutation</li>
+          <li>4 ✦ Potions Taming</li>
+          <li>4 ✦ Potions Instant Adulte</li>
+          <li>Dino à 4 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
+        </ul>
+        <a href="https://ko-fi.com/s/8d80614cd4" target="_blank" rel="noopener noreferrer">
+          <button class="buy-button">Acheter - 12€</button>
+        </a>
+      </div>
     </div>
 
-    <!-- Pack 3 -->
     <div class="card">
       <img class="pack-img" src="images/pack3.png" alt="Pack VIP Tiers 3">
       <h2>Pack VIP Tiers 3 – 20 €</h2>
-      <ul>
-        <li>6 ✦ Potions de mutation</li>
-        <li>6 ✦ Potions Taming</li>
-        <li>6 ✦ Potions Instant Adulte</li>
-        <li>1 ✦ Lust Potion (reset timer repro sur 1 femelle)</li>
-        <li>Dino à 6 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
-      </ul>
-      <a href="https://ko-fi.com/s/f5511481c6" target="_blank" rel="noopener noreferrer">
-        <button class="buy-button">Acheter - 20€</button>
-      </a>
+      <div class="content">
+        <ul>
+          <li>6 ✦ Potions de mutation</li>
+          <li>6 ✦ Potions Taming</li>
+          <li>6 ✦ Potions Instant Adulte</li>
+          <li>1 ✦ Lust Potion (reset timer repro sur 1 femelle)</li>
+          <li>Dino à 6 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
+        </ul>
+        <a href="https://ko-fi.com/s/f5511481c6" target="_blank" rel="noopener noreferrer">
+          <button class="buy-button">Acheter - 20€</button>
+        </a>
+      </div>
     </div>
+
   </main>
 
-  <footer>
-    <p>
-      <a href="https://yatsunark-cvg.netlify.app/" target="_blank" class="cgv-link">
-        Conditions Générales de Vente
-      </a>
-    </p>
-    <a href="https://discord.gg/aJa4UgJmCR" target="_blank" rel="noopener noreferrer">
-      <img src="images/discord_icon.png.png" alt="Discord" />
-    </a>
-    <p>Rejoins notre communauté sur Discord !</p>
-  </footer>
+  <script>
+    document.querySelectorAll('.card h2').forEach(title => {
+      title.addEventListener('click', () => {
+        const card = title.parentElement;
+        card.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>
