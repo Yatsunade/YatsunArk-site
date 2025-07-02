@@ -6,7 +6,9 @@
   <title>Yatsun'Ark PvE</title>
   <style>
     body, html {
-      margin: 0; padding: 0; height: 100%;
+      margin: 0;
+      padding: 0;
+      height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #f0f0f0;
       overflow-x: hidden;
@@ -72,9 +74,15 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
       text-align: center;
       color: #fff;
-
       display: flex;
       flex-direction: column;
+    }
+
+    .card img.pack-img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 12px;
     }
 
     .card h2 {
@@ -136,6 +144,12 @@
     .cgv-link:hover {
       color: #66d3ff;
     }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -146,7 +160,9 @@
   </header>
 
   <main class="container">
+    <!-- Pack 1 -->
     <div class="card">
+      <img class="pack-img" src="images/pack1.png" alt="Pack VIP Tiers 1">
       <h2>Pack VIP Tiers 1 – 7 €</h2>
       <ul>
         <li>2 ✦ Potions de mutation</li>
@@ -159,7 +175,9 @@
       </a>
     </div>
 
+    <!-- Pack 2 -->
     <div class="card">
+      <img class="pack-img" src="images/pack2.png" alt="Pack VIP Tiers 2">
       <h2>Pack VIP Tiers 2 – 12 €</h2>
       <ul>
         <li>4 ✦ Potions de mutation</li>
@@ -172,7 +190,9 @@
       </a>
     </div>
 
+    <!-- Pack 3 -->
     <div class="card">
+      <img class="pack-img" src="images/pack3.png" alt="Pack VIP Tiers 3">
       <h2>Pack VIP Tiers 3 – 20 €</h2>
       <ul>
         <li>6 ✦ Potions de mutation</li>
