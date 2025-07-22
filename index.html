@@ -65,6 +65,7 @@
       padding: 30px;
       max-width: 1200px;
       margin: 0 auto 50px auto;
+      justify-content: center;
     }
 
     .card {
@@ -76,6 +77,8 @@
       color: #fff;
       display: flex;
       flex-direction: column;
+      max-width: 340px;
+      margin: 0 auto;
     }
 
     .card img.pack-img {
@@ -95,6 +98,11 @@
       padding-left: 20px;
       margin-bottom: 10px;
       color: #ccc;
+    }
+
+    .card a {
+      margin-top: auto;
+      align-self: center;
     }
 
     .buy-button {
@@ -155,9 +163,10 @@
   </header>
 
   <main class="container">
+    <!-- Pack 1 -->
     <div class="card">
-      <img class="pack-img" src="images/pack1.png" alt="Pack VIP Tiers 1">
-      <h2>Pack VIP Tiers 1 – 7 €</h2>
+      <img class="pack-img" src="images/pack1.png" alt="Pack VIP Tiers 1" />
+      <h2>VIP Tiers 1 – 7 €</h2>
       <ul>
         <li>2 ✦ Potions de mutation</li>
         <li>2 ✦ Potions Taming</li>
@@ -169,9 +178,10 @@
       </a>
     </div>
 
+    <!-- Pack 2 -->
     <div class="card">
-      <img class="pack-img" src="images/pack2.png" alt="Pack VIP Tiers 2">
-      <h2>Pack VIP Tiers 2 – 12 €</h2>
+      <img class="pack-img" src="images/pack2.png" alt="Pack VIP Tiers 2" />
+      <h2>VIP Tiers 2 – 12 €</h2>
       <ul>
         <li>4 ✦ Potions de mutation</li>
         <li>4 ✦ Potions Taming</li>
@@ -183,9 +193,10 @@
       </a>
     </div>
 
+    <!-- Pack 3 -->
     <div class="card">
-      <img class="pack-img" src="images/pack3.png" alt="Pack VIP Tiers 3">
-      <h2>Pack VIP Tiers 3 – 20 €</h2>
+      <img class="pack-img" src="images/pack3.png" alt="Pack VIP Tiers 3" />
+      <h2>VIP Tiers 3 – 20 €</h2>
       <ul>
         <li>6 ✦ Potions de mutation</li>
         <li>6 ✦ Potions Taming</li>
@@ -198,16 +209,15 @@
       </a>
     </div>
 
-    <hr style="grid-column: 1 / -1; border: none; border-top: 2px solid #00bfff; margin: 40px 0;">
-
+    <!-- Nouveaux packs dinos -->
     <div class="card">
-      <img class="pack-img" src="images/dino1.png" alt="Pack Dino Tier 1">
-      <h2>Pack Dino Tier 1 – 7 €</h2>
+      <img class="pack-img" src="images/dino1.png" alt="Dino Tier 1" />
+      <h2>Dino Tier 1 – 7 €</h2>
       <ul>
-        <li>1 ✦ Ptéranodon lvl 275</li>
-        <li>1 ✦ Raptor lvl 275</li>
-        <li>1 ✦ Parasaur lvl 275</li>
-        <li>1 ✦ Ichtyosaure lvl 275</li>
+        <li>x1 Ptéranodon 275</li>
+        <li>x1 Raptor 275</li>
+        <li>x1 Parasaur 275</li>
+        <li>x1 Ichtyosaure 275</li>
       </ul>
       <a href="https://ko-fi.com/s/78f3d28e7f" target="_blank" rel="noopener noreferrer">
         <button class="buy-button">Acheter - 7€</button>
@@ -215,13 +225,13 @@
     </div>
 
     <div class="card">
-      <img class="pack-img" src="images/dino2.png" alt="Pack Dino Tier 2">
-      <h2>Pack Dino Tier 2 – 12 €</h2>
+      <img class="pack-img" src="images/dino2.png" alt="Dino Tier 2" />
+      <h2>Dino Tier 2 – 12 €</h2>
       <ul>
-        <li>1 ✦ Argentavis lvl 275</li>
-        <li>1 ✦ Allosaure lvl 275</li>
-        <li>1 ✦ Doedicurus lvl 275</li>
-        <li>1 ✦ Baryonyx lvl 275</li>
+        <li>x1 Argentavis 275</li>
+        <li>x1 Allosaure 275</li>
+        <li>x1 Doedicurus 275</li>
+        <li>x1 Baryonyx 275</li>
       </ul>
       <a href="https://ko-fi.com/s/27d68c997c" target="_blank" rel="noopener noreferrer">
         <button class="buy-button">Acheter - 12€</button>
@@ -229,13 +239,13 @@
     </div>
 
     <div class="card">
-      <img class="pack-img" src="images/dino3.png" alt="Pack Dino Tier 3">
-      <h2>Pack Dino Tier 3 – 20 €</h2>
+      <img class="pack-img" src="images/dino3.png" alt="Dino Tier 3" />
+      <h2>Dino Tier 3 – 20 €</h2>
       <ul>
-        <li>1 ✦ Megalodon lvl 275</li>
-        <li>1 ✦ Rex lvl 275</li>
-        <li>1 ✦ Ankylosaure lvl 275</li>
-        <li>1 ✦ Wyvern Foudre lvl 275</li>
+        <li>x1 Megalodon, 275</li>
+        <li>x1 Rex 275</li>
+        <li>x1 Ankylosaure 275</li>
+        <li>x1 Wyvern Foudre 275</li>
       </ul>
       <a href="https://ko-fi.com/s/c3d9634d5d" target="_blank" rel="noopener noreferrer">
         <button class="buy-button">Acheter - 20€</button>
@@ -245,7 +255,9 @@
 
   <footer>
     <p>
-      <a href="https://yatsunark-cvg.netlify.app/" target="_blank" class="cgv-link">Conditions Générales de Vente</a>
+      <a href="https://yatsunark-cvg.netlify.app/" target="_blank" class="cgv-link">
+        Conditions Générales de Vente
+      </a>
     </p>
     <a href="https://discord.gg/aJa4UgJmCR" target="_blank" rel="noopener noreferrer">
       <img src="images/discord_icon.png.png" alt="Discord" />
