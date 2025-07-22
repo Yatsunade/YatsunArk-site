@@ -13,7 +13,6 @@
       color: #f0f0f0;
       overflow-x: hidden;
     }
-
     body::before {
       content: "";
       position: fixed;
@@ -25,7 +24,6 @@
       z-index: -2;
       transform: scale(1.05);
     }
-
     body::after {
       content: "";
       position: fixed;
@@ -33,31 +31,26 @@
       background: rgba(0, 0, 0, 0.5);
       z-index: -1;
     }
-
     header {
       background-color: transparent;
       padding: 20px;
       text-align: center;
     }
-
     header img {
       width: 180px;
       display: block;
       margin: 0 auto 10px auto;
     }
-
     header h1 {
       margin: 0;
       font-size: 3rem;
       color: #00bfff;
     }
-
     header p {
       margin-top: 6px;
       font-size: 1.2rem;
       color: #ddd;
     }
-
     .container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -66,7 +59,6 @@
       max-width: 1200px;
       margin: 0 auto 50px auto;
     }
-
     .card {
       background-color: rgba(31, 31, 31, 0.85);
       border-radius: 12px;
@@ -77,31 +69,26 @@
       display: flex;
       flex-direction: column;
     }
-
     .card img.pack-img {
       width: 100%;
       height: auto;
       border-radius: 8px;
       margin-bottom: 12px;
     }
-
     .card h2 {
       margin-top: 0;
       color: #00bfff;
     }
-
     .card ul {
       text-align: left;
       padding-left: 20px;
       margin-bottom: 10px;
       color: #ccc;
     }
-
     .card a {
       margin-top: auto;
       align-self: center;
     }
-
     .buy-button {
       background-color: #00bfff;
       color: white;
@@ -112,27 +99,22 @@
       font-size: 1rem;
       transition: background-color 0.3s ease;
     }
-
     .buy-button:hover {
       background-color: #009acc;
     }
-
     footer {
       text-align: center;
       padding: 20px;
       margin-top: 40px;
     }
-
     footer img {
       width: 48px;
       height: 48px;
     }
-
     footer p {
       color: #aaa;
       margin-top: 8px;
     }
-
     .cgv-link {
       color: #00bfff;
       text-decoration: underline;
@@ -140,11 +122,9 @@
       margin-bottom: 10px;
       display: inline-block;
     }
-
     .cgv-link:hover {
       color: #66d3ff;
     }
-
     @media (max-width: 768px) {
       .container {
         grid-template-columns: 1fr;
@@ -156,11 +136,11 @@
   <header>
     <img src="images/Logo_Yatsu.png.png" alt="Logo Yatsun'Ark" />
     <h1>Yatsun'ARK PvE</h1>
-    <p>Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
+    <p>Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos packs VIP et Dino !</p>
   </header>
 
   <main class="container">
-    <!-- Pack 1 -->
+    <!-- Packs VIP -->
     <div class="card">
       <img class="pack-img" src="images/pack1.png" alt="Pack VIP Tiers 1">
       <h2>Pack VIP Tiers 1 – 7 €</h2>
@@ -175,7 +155,6 @@
       </a>
     </div>
 
-    <!-- Pack 2 -->
     <div class="card">
       <img class="pack-img" src="images/pack2.png" alt="Pack VIP Tiers 2">
       <h2>Pack VIP Tiers 2 – 12 €</h2>
@@ -190,7 +169,6 @@
       </a>
     </div>
 
-    <!-- Pack 3 -->
     <div class="card">
       <img class="pack-img" src="images/pack3.png" alt="Pack VIP Tiers 3">
       <h2>Pack VIP Tiers 3 – 20 €</h2>
@@ -205,6 +183,50 @@
         <button class="buy-button">Acheter - 20€</button>
       </a>
     </div>
+
+    <!-- Packs Dino -->
+    <div class="card">
+      <img class="pack-img" src="images/dino1.png" alt="Pack Dino Tier 1">
+      <h2>Pack Dino Tiers 1 – 7 €</h2>
+      <ul>
+        <li>x1 Ptéranodon 275</li>
+        <li>x1 Raptor 275</li>
+        <li>x1 Parasaur 275</li>
+        <li>x1 Ichtyosaure 275</li>
+      </ul>
+      <a href="https://ko-fi.com/s/78f3d28e7f" target="_blank" rel="noopener noreferrer">
+        <button class="buy-button">Acheter - 7€</button>
+      </a>
+    </div>
+
+    <div class="card">
+      <img class="pack-img" src="images/dino2.png" alt="Pack Dino Tier 2">
+      <h2>Pack Dino Tiers 2 – 12 €</h2>
+      <ul>
+        <li>x1 Argentavis 275</li>
+        <li>x1 Allosaure 275</li>
+        <li>x1 Doedicurus 275</li>
+        <li>x1 Baryonyx 275</li>
+      </ul>
+      <a href="https://ko-fi.com/s/27d68c997c" target="_blank" rel="noopener noreferrer">
+        <button class="buy-button">Acheter - 12€</button>
+      </a>
+    </div>
+
+    <div class="card">
+      <img class="pack-img" src="images/dino3.png" alt="Pack Dino Tier 3">
+      <h2>Pack Dino Tiers 3 – 20 €</h2>
+      <ul>
+        <li>x1 Megalodon 275</li>
+        <li>x1 Rex 275</li>
+        <li>x1 Ankylosaure 275</li>
+        <li>x1 Wyvern Foudre 275</li>
+      </ul>
+      <a href="https://ko-fi.com/s/c3d9634d5d" target="_blank" rel="noopener noreferrer">
+        <button class="buy-button">Acheter - 20€</button>
+      </a>
+    </div>
+
   </main>
 
   <footer>
