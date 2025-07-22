@@ -12,8 +12,9 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #f0f0f0;
       overflow-x: hidden;
-      background: url('images/tropical_background.png.png') no-repeat center center fixed;
-      background-size: cover;
+      background: none;
+      position: relative;
+      z-index: 0;
     }
 
     body::before {
@@ -23,9 +24,18 @@
       background-image: url('images/tropical_background.png.png');
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       filter: blur(6px);
       z-index: -2;
       transform: scale(1.05);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.35);
+      z-index: -1;
     }
 
     header {
@@ -168,7 +178,6 @@
   </header>
 
   <main class="container">
-    <!-- Packs VIP -->
     <section class="packs-grid" aria-label="Packs VIP">
       <div class="card">
         <img class="pack-img" src="images/pack1.png" alt="Pack VIP Tiers 1" />
@@ -216,7 +225,6 @@
 
     <hr />
 
-    <!-- Packs Dino -->
     <section class="packs-grid" aria-label="Packs Dino">
       <div class="card">
         <img class="pack-img" src="images/dino1.png" alt="Dino Tier 1" />
