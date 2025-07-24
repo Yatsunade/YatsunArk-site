@@ -5,14 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yatsun'Ark PvE</title>
   <style>
-    html, body {
+    body, html {
       margin: 0;
       padding: 0;
       height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #f0f0f0;
       overflow-x: hidden;
-      width: 100%;
+      background: none;
+      position: relative;
+      z-index: 0;
     }
 
     body::before {
@@ -36,44 +38,6 @@
       z-index: -1;
     }
 
-    .nav-wrapper {
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      width: 100vw;
-    }
-
-    .nav-tabs {
-      display: flex;
-      justify-content: center;
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 10px 0;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      width: 100vw;
-      left: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-
-    .tab-button {
-      background: none;
-      border: none;
-      color: #f0f0f0;
-      font-size: 1rem;
-      margin: 0 20px;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    .tab-button:hover,
-    .tab-button.active {
-      color: #00bfff;
-    }
-
     header {
       background-color: transparent;
       padding: 20px;
@@ -90,16 +54,6 @@
       margin: 0;
       font-size: 3rem;
       color: #00bfff;
-        font-family: 'Cinzel', serif;
-      text-shadow:
-      -2px -2px 0 #000,
-       2px -2px 0 #000,
-      -2px  2px 0 #000,
-       2px  2px 0 #000,
-      -2px  0px 0 #000,
-       2px  0px 0 #000,
-       0px -2px 0 #000,
-       0px  2px 0 #000;
     }
 
     header p {
@@ -114,22 +68,40 @@
       padding: 30px 15px;
     }
 
+    /* Styles pour les onglets */
+    .tabs {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .tab-button {
+      background-color: #1f1f1f;
+      border: none;
+      color: #00bfff;
+      padding: 12px 24px;
+      margin: 0 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .tab-button:hover {
+      background-color: #009acc;
+      color: white;
+    }
+
+    .tab-button.active {
+      background-color: #00bfff;
+      color: white;
+      cursor: default;
+    }
+
     .packs-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
       justify-content: center;
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-
-    .packs-grid.hidden {
-      opacity: 0;
-      transform: translateY(10px);
-      pointer-events: none;
-      height: 0;
-      overflow: hidden;
     }
 
     .card {
@@ -220,30 +192,36 @@
       color: #66d3ff;
     }
 
+    .hidden {
+      display: none;
+    }
+
     @media (max-width: 768px) {
       .packs-grid {
         grid-template-columns: 1fr;
       }
+      .tab-button {
+        margin: 8px 4px;
+        padding: 10px 16px;
+      }
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="nav-wrapper">
-    <div class="nav-tabs">
-      <button class="tab-button active" data-target="all">Tous</button>
-      <button class="tab-button" data-target="vip">Packs VIP</button>
-      <button class="tab-button" data-target="dino">Packs Dino</button>
-    </div>
-  </div>
-
   <header>
     <img src="images/Logo_Yatsu.png.png" alt="Logo Yatsun'Ark" />
     <h1>Yatsun'ARK PvE</h1>
-  <p style="font-family: 'Cinzel', serif;">Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
+    <p>Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
   </header>
 
   <main class="container">
+
+    <div class="tabs" role="tablist" aria-label="Filtre des packs">
+      <button class="tab-button active" data-target="all" role="tab" aria-selected="true">Tous</button>
+      <button class="tab-button" data-target="vip" role="tab" aria-selected="false">Packs VIP</button>
+      <button class="tab-button" data-target="dino" role="tab" aria-selected="false">Packs Dino</button>
+    </div>
+
     <section class="packs-grid section-vip" aria-label="Packs VIP">
       <div class="card">
         <img class="pack-img" src="images/pack1.png" alt="Pack VIP Tiers 1" />
@@ -252,7 +230,7 @@
           <li>2 ✦ Potions de mutation</li>
           <li>2 ✦ Potions Taming</li>
           <li>2 ✦ Potions Instant Adulte</li>
-          <li>Dino à 2 000 ✦ Points de shop</li>
+          <li>Dino à 2 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
         </ul>
         <a href="https://ko-fi.com/s/6faa608c24" target="_blank" rel="noopener noreferrer">
           <button class="buy-button">Acheter - 7€</button>
@@ -266,7 +244,7 @@
           <li>4 ✦ Potions de mutation</li>
           <li>4 ✦ Potions Taming</li>
           <li>4 ✦ Potions Instant Adulte</li>
-          <li>Dino à 4 000 ✦ Points de shop</li>
+          <li>Dino à 4 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
         </ul>
         <a href="https://ko-fi.com/s/8d80614cd4" target="_blank" rel="noopener noreferrer">
           <button class="buy-button">Acheter - 12€</button>
@@ -280,8 +258,8 @@
           <li>6 ✦ Potions de mutation</li>
           <li>6 ✦ Potions Taming</li>
           <li>6 ✦ Potions Instant Adulte</li>
-          <li>1 ✦ Lust Potion</li>
-          <li>Dino à 6 000 ✦ Points de shop</li>
+          <li>1 ✦ Lust Potion (reset timer repro sur 1 femelle)</li>
+          <li>Dino à 6 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
         </ul>
         <a href="https://ko-fi.com/s/f5511481c6" target="_blank" rel="noopener noreferrer">
           <button class="buy-button">Acheter - 20€</button>
@@ -355,8 +333,16 @@
     const hr = document.querySelector('hr');
 
     function updateView(target) {
-      buttons.forEach(btn => btn.classList.remove('active'));
-      document.querySelector(.tab-button[data-target="${target}"]).classList.add('active');
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+
+      const activeBtn = document.querySelector(`.tab-button[data-target="${target}"]`);
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.setAttribute('aria-selected', 'true');
+      }
 
       if (target === 'vip') {
         vipSection.classList.remove('hidden');
@@ -381,5 +367,3 @@
   </script>
 </body>
 </html>
-
-
