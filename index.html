@@ -16,7 +16,6 @@
       position: relative;
       z-index: 0;
     }
-
     body::before {
       content: "";
       position: fixed;
@@ -29,7 +28,6 @@
       z-index: -2;
       transform: scale(1.05);
     }
-
     body::after {
       content: "";
       position: fixed;
@@ -37,7 +35,6 @@
       background-color: rgba(0, 0, 0, 0.35);
       z-index: -1;
     }
-
     .nav-tabs {
       display: flex;
       justify-content: center;
@@ -46,8 +43,10 @@
       position: sticky;
       top: 0;
       z-index: 10;
+      width: 100vw;
+      left: 0;
+      box-sizing: border-box;
     }
-
     .tab-button {
       background: none;
       border: none;
@@ -59,51 +58,43 @@
       border-bottom: 2px solid transparent;
       transition: all 0.3s ease;
     }
-
     .tab-button.active,
     .tab-button:hover {
       color: #00bfff;
       border-bottom: 2px solid #00bfff;
     }
-
     header {
       background-color: transparent;
       padding: 20px;
       text-align: center;
     }
-
     header img {
       width: 180px;
       display: block;
       margin: 0 auto 10px auto;
     }
-
     header h1 {
       margin: 0;
       font-size: 3rem;
       color: #00bfff;
     }
-
     header p {
       margin-top: 6px;
       font-size: 1.2rem;
       color: #ddd;
     }
-
     .container {
       max-width: 1200px;
       margin: 0 auto 50px auto;
       padding: 30px 15px;
       position: relative;
     }
-
     .packs-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
       justify-content: center;
     }
-
     .card {
       background-color: rgba(31, 31, 31, 0.85);
       border-radius: 12px;
@@ -116,31 +107,26 @@
       max-width: 340px;
       margin: 0 auto;
     }
-
     .card img.pack-img {
       width: 100%;
       height: auto;
       border-radius: 8px;
       margin-bottom: 12px;
     }
-
     .card h2 {
       margin-top: 0;
       color: #00bfff;
     }
-
     .card ul {
       text-align: left;
       padding-left: 20px;
       margin-bottom: 10px;
       color: #ccc;
     }
-
     .card a {
       margin-top: auto;
       align-self: center;
     }
-
     .buy-button {
       background-color: #00bfff;
       color: white;
@@ -151,11 +137,9 @@
       font-size: 1rem;
       transition: background-color 0.3s ease;
     }
-
     .buy-button:hover {
       background-color: #009acc;
     }
-
     hr {
       border: none;
       border-top: 2px solid #00bfff;
@@ -163,23 +147,19 @@
       max-width: 600px;
       opacity: 0.6;
     }
-
     footer {
       text-align: center;
       padding: 20px;
       margin-top: 40px;
     }
-
     footer img {
       width: 48px;
       height: 48px;
     }
-
     footer p {
       color: #aaa;
       margin-top: 8px;
     }
-
     .cgv-link {
       color: #00bfff;
       text-decoration: underline;
@@ -187,22 +167,23 @@
       margin-bottom: 10px;
       display: inline-block;
     }
-
     .cgv-link:hover {
       color: #66d3ff;
     }
-
     .fade-section {
       opacity: 1;
-      transition: opacity 0.5s ease;
+      transition: opacity 1s ease;
+      position: relative;
     }
-
     .fade-hidden {
       opacity: 0;
       pointer-events: none;
       position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
-
     @media (max-width: 768px) {
       .packs-grid {
         grid-template-columns: 1fr;
@@ -216,13 +197,11 @@
     <button class="tab-button" data-target="vip">Packs VIP</button>
     <button class="tab-button" data-target="dino">Packs Dino</button>
   </div>
-
   <header>
     <img src="images/Logo_Yatsu.png.png" alt="Logo Yatsun'Ark" />
     <h1>Yatsun'ARK PvE</h1>
     <p>Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
   </header>
-
   <main class="container">
     <section id="vip" class="packs-grid fade-section" aria-label="Packs VIP">
       <div class="card">
@@ -238,7 +217,6 @@
           <button class="buy-button">Acheter - 7€</button>
         </a>
       </div>
-
       <div class="card">
         <img class="pack-img" src="images/pack2.png" alt="Pack VIP Tiers 2" />
         <h2>VIP Tiers 2 – 12 €</h2>
@@ -252,7 +230,6 @@
           <button class="buy-button">Acheter - 12€</button>
         </a>
       </div>
-
       <div class="card">
         <img class="pack-img" src="images/pack3.png" alt="Pack VIP Tiers 3" />
         <h2>VIP Tiers 3 – 20 €</h2>
@@ -268,9 +245,7 @@
         </a>
       </div>
     </section>
-
     <hr id="separator" />
-
     <section id="dino" class="packs-grid fade-section" aria-label="Packs Dino">
       <div class="card">
         <img class="pack-img" src="images/dino1.png" alt="Dino Tier 1" />
@@ -285,7 +260,6 @@
           <button class="buy-button">Acheter - 7€</button>
         </a>
       </div>
-
       <div class="card">
         <img class="pack-img" src="images/dino2.png" alt="Dino Tier 2" />
         <h2>Dino Tier 2 – 12 €</h2>
@@ -299,7 +273,6 @@
           <button class="buy-button">Acheter - 12€</button>
         </a>
       </div>
-
       <div class="card">
         <img class="pack-img" src="images/dino3.png" alt="Dino Tier 3" />
         <h2>Dino Tier 3 – 20 €</h2>
@@ -307,55 +280,63 @@
           <li>x1 Megalodon 275</li>
           <li>x1 Rex 275</li>
           <li>x1 Ankylosaure 275</li>
-          <li>x1 Wyvern Foudre 275</li>
+          <li>x1 Spino 275</li>
         </ul>
-        <a href="https://ko-fi.com/s/c3d9634d5d" target="_blank" rel="noopener noreferrer">
+        <a href="https://ko-fi.com/s/b04e2605f9" target="_blank" rel="noopener noreferrer">
           <button class="buy-button">Acheter - 20€</button>
         </a>
       </div>
     </section>
   </main>
-
   <footer>
-    <p>
-      <a href="https://yatsunark-cvg.netlify.app/" target="_blank" class="cgv-link">
-        Conditions Générales de Vente
-      </a>
-    </p>
-    <a href="https://discord.gg/aJa4UgJmCR" target="_blank" rel="noopener noreferrer">
-      <img src="images/discord_icon.png.png" alt="Discord" />
-    </a>
-    <p>Rejoins notre communauté sur Discord !</p>
+    <a class="cgv-link" href="https://yatsunark.com/cgv">Conditions Générales de Vente</a>
+    <img src="images/logoYatsuMini.png" alt="Logo Yatsun'Ark Mini" />
+    <p>© Yatsun'Ark 2025</p>
   </footer>
-
   <script>
     const buttons = document.querySelectorAll('.tab-button');
     const vipSection = document.getElementById('vip');
     const dinoSection = document.getElementById('dino');
     const separator = document.getElementById('separator');
 
-    vipSection.classList.add('fade-section');
-    dinoSection.classList.add('fade-section');
-
     buttons.forEach(button => {
       button.addEventListener('click', () => {
         buttons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
-
         const target = button.dataset.target;
 
-        if (target === 'vip') {
-          vipSection.classList.remove('fade-hidden');
-          dinoSection.classList.add('fade-hidden');
-          separator.style.display = 'none';
+        function fadeOut(element, callback) {
+          element.classList.add('fade-hidden');
+          setTimeout(callback, 1000);
+        }
+        function fadeIn(element) {
+          element.classList.remove('fade-hidden');
+        }
+
+        if (target === 'all') {
+          fadeOut(vipSection, () => {
+            fadeOut(dinoSection, () => {
+              vipSection.style.display = 'grid';
+              dinoSection.style.display = 'grid';
+              separator.style.display = 'block';
+              fadeIn(vipSection);
+              fadeIn(dinoSection);
+            });
+          });
+        } else if (target === 'vip') {
+          fadeOut(dinoSection, () => {
+            dinoSection.style.display = 'none';
+            separator.style.display = 'none';
+            vipSection.style.display = 'grid';
+            fadeIn(vipSection);
+          });
         } else if (target === 'dino') {
-          dinoSection.classList.remove('fade-hidden');
-          vipSection.classList.add('fade-hidden');
-          separator.style.display = 'none';
-        } else {
-          vipSection.classList.remove('fade-hidden');
-          dinoSection.classList.remove('fade-hidden');
-          separator.style.display = 'block';
+          fadeOut(vipSection, () => {
+            vipSection.style.display = 'none';
+            separator.style.display = 'none';
+            dinoSection.style.display = 'grid';
+            fadeIn(dinoSection);
+          });
         }
       });
     });
