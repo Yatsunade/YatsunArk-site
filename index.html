@@ -4,279 +4,282 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yatsun'Ark PvE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet" />
   <style>
-    body {
-      margin: 0; padding: 0; font-family: Arial, sans-serif;
-      background: url('https://example.com/background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #f0f0f0;
+      overflow-x: hidden;
+      background: none;
+      position: relative;
+      z-index: 0;
     }
-    .overlay {
+
+    body::before {
+      content: "";
       position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(5px);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('images/tropical_background.png.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: blur(6px);
+      z-index: -2;
+      transform: scale(1.05);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.35);
       z-index: -1;
     }
-    nav {
-      background: #111;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1em 2em;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1.2em;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    #language-select {
-      display: flex;
-      gap: 0.5em;
-      cursor: pointer;
-    }
-    #language-select img {
-      width: 32px;
-      height: 20px;
-      border: 2px solid transparent;
-      border-radius: 3px;
-    }
-    #language-select img.active {
-      border-color: gold;
-    }
+
     header {
+      background-color: transparent;
+      padding: 20px;
       text-align: center;
-      margin-top: 2em;
     }
+
+    header img {
+      width: 180px;
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+
     header h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 3.5em;
-      text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
+      margin: 0;
+      font-size: 3rem;
+      color: #00bfff;
     }
-    header h2 {
-      font-family: 'Cinzel', serif;
-      font-weight: normal;
-      font-size: 1.5em;
-      margin-top: 0.2em;
+
+    header p {
+      margin-top: 6px;
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto 50px auto;
+      padding: 30px 15px;
+    }
+
+    .packs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: rgba(31, 31, 31, 0.85);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+      text-align: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    .card img.pack-img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #00bfff;
+    }
+
+    .card ul {
+      text-align: left;
+      padding-left: 20px;
+      margin-bottom: 10px;
       color: #ccc;
     }
-    main {
-      max-width: 900px;
-      margin: 3em auto;
-      padding: 0 1em;
+
+    .card a {
+      margin-top: auto;
+      align-self: center;
     }
-    section {
-      margin-bottom: 3em;
-      background: rgba(0,0,0,0.4);
-      border-radius: 10px;
-      padding: 1.5em;
-    }
-    section h3 {
-      border-bottom: 2px solid gold;
-      padding-bottom: 0.3em;
-      margin-bottom: 1em;
-      font-family: 'Cinzel', serif;
-    }
-    ul {
-      list-style: none;
-      padding-left: 1em;
-    }
-    ul li::before {
-      content: '✦';
-      color: gold;
-      margin-right: 0.5em;
-    }
-    button.buy-btn {
-      background-color: gold;
+
+    .buy-button {
+      background-color: #00bfff;
+      color: white;
       border: none;
-      padding: 0.6em 1.2em;
+      padding: 12px 24px;
       border-radius: 6px;
-      font-weight: bold;
       cursor: pointer;
-      margin-top: 1em;
-      color: black;
+      font-size: 1rem;
       transition: background-color 0.3s ease;
     }
-    button.buy-btn:hover {
-      background-color: #ccaa00;
+
+    .buy-button:hover {
+      background-color: #009acc;
     }
+
+    hr {
+      border: none;
+      border-top: 2px solid #00bfff;
+      margin: 40px auto;
+      max-width: 600px;
+      opacity: 0.6;
+    }
+
     footer {
       text-align: center;
-      padding: 1.5em 0;
-      font-size: 0.9em;
-      background: #111;
-      color: #888;
+      padding: 20px;
+      margin-top: 40px;
     }
-    footer a {
-      color: gold;
-      text-decoration: none;
+
+    footer img {
+      width: 48px;
+      height: 48px;
     }
-    footer a:hover {
+
+    footer p {
+      color: #aaa;
+      margin-top: 8px;
+    }
+
+    .cgv-link {
+      color: #00bfff;
       text-decoration: underline;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .cgv-link:hover {
+      color: #66d3ff;
+    }
+
+    @media (max-width: 768px) {
+      .packs-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="overlay"></div>
-
-  <nav>
-    <div>
-      <a href="#" data-i18n="nav_home">Accueil</a>
-      <a href="#" data-i18n="nav_packs">Packs</a>
-      <a href="#" data-i18n="nav_contact">Contact</a>
-    </div>
-    <div id="language-select">
-      <img id="fr-flag" src="https://flagcdn.com/fr.svg" alt="Français" class="active" />
-      <img id="en-flag" src="https://flagcdn.com/gb.svg" alt="English" />
-    </div>
-  </nav>
-
   <header>
-    <h1 data-i18n="title">Yatsun'Ark PvE</h1>
-    <h2 data-i18n="subtitle">Soutenez le cluster et l'équipe Yatsun'Ark avec nos packs VIP !</h2>
+    <img src="images/Logo_Yatsu.png.png" alt="Logo Yatsun'Ark" />
+    <h1>Yatsun'ARK PvE</h1>
+    <p>Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
   </header>
 
-  <main>
-    <section>
-      <h3 data-i18n="vip_tier1_title">VIP Tiers 1 – 7 €</h3>
-      <ul>
-        <li data-i18n="vip_tier1_li1">2 ✦ Potions de mutation</li>
-        <li data-i18n="vip_tier1_li2">2 ✦ Potions Taming</li>
-        <li data-i18n="vip_tier1_li3">2 ✦ Potions Instant Adulte</li>
-        <li data-i18n="vip_tier1_li4">Dino à 2 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
-      </ul>
-      <button class="buy-btn" data-i18n="buy_7">Acheter - 7€</button>
+  <main class="container">
+    <section class="packs-grid" aria-label="Packs VIP">
+      <div class="card">
+        <img class="pack-img" src="images/pack1.png" alt="Pack VIP Tiers 1" />
+        <h2>VIP Tiers 1 – 7 €</h2>
+        <ul>
+          <li>2 ✦ Potions de mutation</li>
+          <li>2 ✦ Potions Taming</li>
+          <li>2 ✦ Potions Instant Adulte</li>
+          <li>Dino à 2 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
+        </ul>
+        <a href="https://ko-fi.com/s/6faa608c24" target="_blank" rel="noopener noreferrer">
+          <button class="buy-button">Acheter - 7€</button>
+        </a>
+      </div>
+
+      <div class="card">
+        <img class="pack-img" src="images/pack2.png" alt="Pack VIP Tiers 2" />
+        <h2>VIP Tiers 2 – 12 €</h2>
+        <ul>
+          <li>4 ✦ Potions de mutation</li>
+          <li>4 ✦ Potions Taming</li>
+          <li>4 ✦ Potions Instant Adulte</li>
+          <li>Dino à 4 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
+        </ul>
+        <a href="https://ko-fi.com/s/8d80614cd4" target="_blank" rel="noopener noreferrer">
+          <button class="buy-button">Acheter - 12€</button>
+        </a>
+      </div>
+
+      <div class="card">
+        <img class="pack-img" src="images/pack3.png" alt="Pack VIP Tiers 3" />
+        <h2>VIP Tiers 3 – 20 €</h2>
+        <ul>
+          <li>6 ✦ Potions de mutation</li>
+          <li>6 ✦ Potions Taming</li>
+          <li>6 ✦ Potions Instant Adulte</li>
+          <li>1 ✦ Lust Potion (reset timer repro sur 1 femelle)</li>
+          <li>Dino à 6 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
+        </ul>
+        <a href="https://ko-fi.com/s/f5511481c6" target="_blank" rel="noopener noreferrer">
+          <button class="buy-button">Acheter - 20€</button>
+        </a>
+      </div>
     </section>
 
-    <section>
-      <h3 data-i18n="vip_tier2_title">VIP Tiers 2 – 12 €</h3>
-      <ul>
-        <li data-i18n="vip_tier2_li1">4 ✦ Potions de mutation</li>
-        <li data-i18n="vip_tier2_li2">4 ✦ Potions Taming</li>
-        <li data-i18n="vip_tier2_li3">4 ✦ Potions Instant Adulte</li>
-        <li data-i18n="vip_tier2_li4">Dino à 4 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
-      </ul>
-      <button class="buy-btn" data-i18n="buy_12">Acheter - 12€</button>
-    </section>
+    <hr />
 
-    <section>
-      <h3 data-i18n="vip_tier3_title">VIP Tiers 3 – 20 €</h3>
-      <ul>
-        <li data-i18n="vip_tier3_li1">6 ✦ Potions de mutation</li>
-        <li data-i18n="vip_tier3_li2">6 ✦ Potions Taming</li>
-        <li data-i18n="vip_tier3_li3">6 ✦ Potions Instant Adulte</li>
-        <li data-i18n="vip_tier3_li4">1 ✦ Lust Potion (reset timer repro sur 1 femelle)</li>
-        <li data-i18n="vip_tier3_li5">Dino à 6 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)</li>
-      </ul>
-      <button class="buy-btn" data-i18n="buy_20">Acheter - 20€</button>
+    <section class="packs-grid" aria-label="Packs Dino">
+      <div class="card">
+        <img class="pack-img" src="images/dino1.png" alt="Dino Tier 1" />
+        <h2>Dino Tier 1 – 7 €</h2>
+        <ul>
+          <li>x1 Ptéranodon 275</li>
+          <li>x1 Raptor 275</li>
+          <li>x1 Parasaur 275</li>
+          <li>x1 Ichtyosaure 275</li>
+        </ul>
+        <a href="https://ko-fi.com/s/78f3d28e7f" target="_blank" rel="noopener noreferrer">
+          <button class="buy-button">Acheter - 7€</button>
+        </a>
+      </div>
+
+      <div class="card">
+        <img class="pack-img" src="images/dino2.png" alt="Dino Tier 2" />
+        <h2>Dino Tier 2 – 12 €</h2>
+        <ul>
+          <li>x1 Argentavis 275</li>
+          <li>x1 Allosaure 275</li>
+          <li>x1 Doedicurus 275</li>
+          <li>x1 Baryonyx 275</li>
+        </ul>
+        <a href="https://ko-fi.com/s/27d68c997c" target="_blank" rel="noopener noreferrer">
+          <button class="buy-button">Acheter - 12€</button>
+        </a>
+      </div>
+
+      <div class="card">
+        <img class="pack-img" src="images/dino3.png" alt="Dino Tier 3" />
+        <h2>Dino Tier 3 – 20 €</h2>
+        <ul>
+          <li>x1 Megalodon 275</li>
+          <li>x1 Rex 275</li>
+          <li>x1 Ankylosaure 275</li>
+          <li>x1 Wyvern Foudre 275</li>
+        </ul>
+        <a href="https://ko-fi.com/s/c3d9634d5d" target="_blank" rel="noopener noreferrer">
+          <button class="buy-button">Acheter - 20€</button>
+        </a>
+      </div>
     </section>
   </main>
 
   <footer>
-    <a href="#" data-i18n="cgv">Conditions Générales de Vente</a> |
-    <a href="https://discord.gg/y7Qw9qJe2s" target="_blank" rel="noopener" data-i18n="discord_invite">Rejoins notre communauté sur Discord !</a>
+    <p>
+      <a href="https://yatsunark-cvg.netlify.app/" target="_blank" class="cgv-link">
+        Conditions Générales de Vente
+      </a>
+    </p>
+    <a href="https://discord.gg/aJa4UgJmCR" target="_blank" rel="noopener noreferrer">
+      <img src="images/discord_icon.png.png" alt="Discord" />
+    </a>
+    <p>Rejoins notre communauté sur Discord !</p>
   </footer>
-
-  <script>
-    const translations = {
-      fr: {
-        title: "Yatsun'Ark PvE",
-        subtitle: "Soutenez le cluster et l'équipe Yatsun'Ark avec nos packs VIP !",
-        nav_home: "Accueil",
-        nav_packs: "Packs",
-        nav_contact: "Contact",
-        vip_tier1_title: "VIP Tiers 1 – 7 €",
-        vip_tier1_li1: "2 ✦ Potions de mutation",
-        vip_tier1_li2: "2 ✦ Potions Taming",
-        vip_tier1_li3: "2 ✦ Potions Instant Adulte",
-        vip_tier1_li4: "Dino à 2 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)",
-        vip_tier2_title: "VIP Tiers 2 – 12 €",
-        vip_tier2_li1: "4 ✦ Potions de mutation",
-        vip_tier2_li2: "4 ✦ Potions Taming",
-        vip_tier2_li3: "4 ✦ Potions Instant Adulte",
-        vip_tier2_li4: "Dino à 4 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)",
-        vip_tier3_title: "VIP Tiers 3 – 20 €",
-        vip_tier3_li1: "6 ✦ Potions de mutation",
-        vip_tier3_li2: "6 ✦ Potions Taming",
-        vip_tier3_li3: "6 ✦ Potions Instant Adulte",
-        vip_tier3_li4: "1 ✦ Lust Potion (reset timer repro sur 1 femelle)",
-        vip_tier3_li5: "Dino à 6 000 ✦ Points de shop (ou plusieurs pour atteindre ce montant)",
-        buy_7: "Acheter - 7€",
-        buy_12: "Acheter - 12€",
-        buy_20: "Acheter - 20€",
-        cgv: "Conditions Générales de Vente",
-        discord_invite: "Rejoins notre communauté sur Discord !"
-      },
-      en: {
-        title: "Yatsun'ARK PvE",
-        subtitle: "Support the cluster and Yatsun'Ark team by purchasing our VIP packs!",
-        nav_home: "Home",
-        nav_packs: "Packs",
-        nav_contact: "Contact",
-        vip_tier1_title: "VIP Tier 1 – €7",
-        vip_tier1_li1: "2 ✦ Mutation Potions",
-        vip_tier1_li2: "2 ✦ Taming Potions",
-        vip_tier1_li3: "2 ✦ Instant Adult Potions",
-        vip_tier1_li4: "Dino worth 2,000 ✦ Shop points (or several to reach this amount)",
-        vip_tier2_title: "VIP Tier 2 – €12",
-        vip_tier2_li1: "4 ✦ Mutation Potions",
-        vip_tier2_li2: "4 ✦ Taming Potions",
-        vip_tier2_li3: "4 ✦ Instant Adult Potions",
-        vip_tier2_li4: "Dino worth 4,000 ✦ Shop points (or several to reach this amount)",
-        vip_tier3_title: "VIP Tier 3 – €20",
-        vip_tier3_li1: "6 ✦ Mutation Potions",
-        vip_tier3_li2: "6 ✦ Taming Potions",
-        vip_tier3_li3: "6 ✦ Instant Adult Potions",
-        vip_tier3_li4: "1 ✦ Lust Potion (resets repro timer on 1 female)",
-        vip_tier3_li5: "Dino worth 6,000 ✦ Shop points (or several to reach this amount)",
-        buy_7: "Buy - €7",
-        buy_12: "Buy - €12",
-        buy_20: "Buy - €20",
-        cgv: "Terms and Conditions of Sale",
-        discord_invite: "Join our community on Discord!"
-      }
-    };
-
-    function translatePage(lang) {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          el.textContent = translations[lang][key];
-        }
-      });
-    }
-
-    const frFlag = document.getElementById('fr-flag');
-    const enFlag = document.getElementById('en-flag');
-
-    frFlag.addEventListener('click', () => {
-      translatePage('fr');
-      frFlag.classList.add('active');
-      enFlag.classList.remove('active');
-      document.documentElement.lang = 'fr';
-    });
-
-    enFlag.addEventListener('click', () => {
-      translatePage('en');
-      enFlag.classList.add('active');
-      frFlag.classList.remove('active');
-      document.documentElement.lang = 'en';
-    });
-
-    translatePage('fr');
-    document.documentElement.lang = 'fr';
-  </script>
 </body>
 </html>
