@@ -90,7 +90,7 @@
       margin: 0;
       font-size: 3rem;
       color: #00bfff;
-        font-family: 'Cinzel', serif;
+      font-family: 'Cinzel', serif;
       text-shadow:
       -2px -2px 0 #000,
        2px -2px 0 #000,
@@ -106,6 +106,7 @@
       margin-top: 6px;
       font-size: 1.2rem;
       color: #ddd;
+      font-family: 'Cinzel', serif;
     }
 
     .container {
@@ -240,7 +241,7 @@
   <header>
     <img src="images/Logo_Yatsu.png.png" alt="Logo Yatsun'Ark" />
     <h1>Yatsun'ARK PvE</h1>
-  <p style="font-family: 'Cinzel', serif;">Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
+    <p>Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
   </header>
 
   <main class="container">
@@ -254,7 +255,7 @@
           <li>2 ✦ Potions Instant Adulte</li>
           <li>Dino à 2 000 ✦ Points de shop</li>
         </ul>
-        <a href="https://ko-fi.com/s/6faa608c24" target="_blank" rel="noopener noreferrer">
+        <a href="https://ko-fi.com/s/6faa608c24" target="_blank">
           <button class="buy-button">Acheter - 7€</button>
         </a>
       </div>
@@ -268,7 +269,7 @@
           <li>4 ✦ Potions Instant Adulte</li>
           <li>Dino à 4 000 ✦ Points de shop</li>
         </ul>
-        <a href="https://ko-fi.com/s/8d80614cd4" target="_blank" rel="noopener noreferrer">
+        <a href="https://ko-fi.com/s/8d80614cd4" target="_blank">
           <button class="buy-button">Acheter - 12€</button>
         </a>
       </div>
@@ -283,7 +284,7 @@
           <li>1 ✦ Lust Potion</li>
           <li>Dino à 6 000 ✦ Points de shop</li>
         </ul>
-        <a href="https://ko-fi.com/s/f5511481c6" target="_blank" rel="noopener noreferrer">
+        <a href="https://ko-fi.com/s/f5511481c6" target="_blank">
           <button class="buy-button">Acheter - 20€</button>
         </a>
       </div>
@@ -301,7 +302,7 @@
           <li>x1 Parasaur 275</li>
           <li>x1 Ichtyosaure 275</li>
         </ul>
-        <a href="https://ko-fi.com/s/78f3d28e7f" target="_blank" rel="noopener noreferrer">
+        <a href="https://ko-fi.com/s/78f3d28e7f" target="_blank">
           <button class="buy-button">Acheter - 7€</button>
         </a>
       </div>
@@ -315,7 +316,7 @@
           <li>x1 Doedicurus 275</li>
           <li>x1 Baryonyx 275</li>
         </ul>
-        <a href="https://ko-fi.com/s/27d68c997c" target="_blank" rel="noopener noreferrer">
+        <a href="https://ko-fi.com/s/27d68c997c" target="_blank">
           <button class="buy-button">Acheter - 12€</button>
         </a>
       </div>
@@ -329,7 +330,7 @@
           <li>x1 Ankylosaure 275</li>
           <li>x1 Wyvern Foudre 275</li>
         </ul>
-        <a href="https://ko-fi.com/s/c3d9634d5d" target="_blank" rel="noopener noreferrer">
+        <a href="https://ko-fi.com/s/c3d9634d5d" target="_blank">
           <button class="buy-button">Acheter - 20€</button>
         </a>
       </div>
@@ -342,7 +343,7 @@
         Conditions Générales de Vente
       </a>
     </p>
-    <a href="https://discord.gg/aJa4UgJmCR" target="_blank" rel="noopener noreferrer">
+    <a href="https://discord.gg/aJa4UgJmCR" target="_blank">
       <img src="images/discord_icon.png.png" alt="Discord" />
     </a>
     <p>Rejoins notre communauté sur Discord !</p>
@@ -356,7 +357,7 @@
 
     function updateView(target) {
       buttons.forEach(btn => btn.classList.remove('active'));
-      document.querySelector(.tab-button[data-target="${target}"]).classList.add('active');
+      document.querySelector(`.tab-button[data-target="${target}"]`).classList.add('active');
 
       if (target === 'vip') {
         vipSection.classList.remove('hidden');
