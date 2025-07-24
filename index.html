@@ -1,265 +1,168 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yatsun'Ark PvE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Yatsun'ARK Boutique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
   <style>
-    body, html {
+    body {
       margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #f0f0f0;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: url('images/tropical_background.png.png');
+      font-family: 'Cinzel', serif;
+      background: url('background.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
-      filter: blur(6px);
-      z-index: -2;
-      transform: scale(1.05);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
 
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: -1;
+    header {
+      padding: 60px 20px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      text-shadow: 2px 2px 4px black;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2em;
     }
 
     .tabs {
       display: flex;
       justify-content: center;
       background-color: rgba(0, 0, 0, 0.7);
-      padding: 12px 0;
+      padding: 10px 0;
       position: fixed;
-      width: 100%;
       top: 0;
-      z-index: 999;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
     }
 
-    .tab {
+    .tabs button {
       background: none;
       border: none;
-      color: #00bfff;
-      font-size: 1.1rem;
-      margin: 0 20px;
+      color: white;
+      font-size: 1.1em;
+      padding: 10px 20px;
       cursor: pointer;
-      font-weight: bold;
-      transition: color 0.3s;
     }
 
-    .tab:hover {
-      color: #66d3ff;
+    .tabs button:hover {
+      text-decoration: underline;
     }
 
-    header {
-      background-color: transparent;
-      padding: 100px 20px 20px;
-      text-align: center;
-    }
-
-    header img {
-      width: 180px;
-      display: block;
-      margin: 0 auto 10px auto;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
-      color: #00bfff;
-      font-family: 'Orbitron', sans-serif;
-      text-shadow:
-        -1px -1px 0 #fff,
-         1px -1px 0 #fff,
-        -1px  1px 0 #fff,
-         1px  1px 0 #fff;
-    }
-
-    header p {
-      margin-top: 6px;
-      font-size: 1.2rem;
-      color: #ddd;
-      font-family: 'Orbitron', sans-serif;
-      text-shadow:
-        -1px -1px 0 #000,
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000;
-    }
-
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 30px;
-      max-width: 1200px;
-      margin: 0 auto 50px auto;
-      opacity: 1;
-      transition: opacity 0.4s ease;
-    }
-
-    .hidden {
+    .section {
+      display: none;
       opacity: 0;
-      pointer-events: none;
-      height: 0;
-      overflow: hidden;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.6s ease-in-out;
     }
 
-    .card {
-      background-color: rgba(31, 31, 31, 0.85);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-      text-align: center;
-      color: #fff;
+    .section.active {
       display: flex;
-      flex-direction: column;
+      opacity: 1;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 30px 20px;
     }
 
-    .card img.pack-img {
+    .pack {
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      color: white;
+      width: 300px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .pack img {
       width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 12px;
+      border-radius: 10px;
     }
 
-    .card h2 {
-      margin-top: 0;
-      color: #00bfff;
+    .pack h2 {
+      margin-top: 15px;
+      font-size: 1.5em;
     }
 
-    .card ul {
+    .pack ul {
       text-align: left;
       padding-left: 20px;
-      margin-bottom: 10px;
-      color: #ccc;
     }
 
-    .card a {
-      margin-top: auto;
-      align-self: center;
-    }
-
-    .buy-button {
-      background-color: #00bfff;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .buy-button:hover {
-      background-color: #009acc;
-    }
-
-    .divider {
-      height: 2px;
-      background: #00bfff;
-      margin: 40px auto 20px;
-      width: 80%;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    footer img {
-      width: 48px;
-      height: 48px;
-    }
-
-    footer p {
-      color: #aaa;
-      margin-top: 8px;
-    }
-
-    .cgv-link {
-      color: #00bfff;
-      text-decoration: underline;
-      font-size: 0.95rem;
-      margin-bottom: 10px;
+    .pack a {
       display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #00aaff;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
     }
 
-    .cgv-link:hover {
-      color: #66d3ff;
+    .discord {
+      text-align: center;
+      margin: 50px 0;
+      color: white;
     }
 
-    @media (max-width: 768px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
+    .discord img {
+      width: 40px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
 
-      .tabs {
-        flex-direction: column;
-      }
-
-      .tab {
-        margin: 10px 0;
-      }
+    hr {
+      border: none;
+      height: 2px;
+      background-color: #ffffff55;
+      margin: 40px auto;
+      width: 80%;
     }
   </style>
 </head>
 <body>
   <div class="tabs">
-    <button class="tab" onclick="showSection('vip')">Pack VIP</button>
-    <button class="tab" onclick="showSection('dino')">Pack Dino</button>
+    <button onclick="showSection('vip')">Pack VIP</button>
+    <button onclick="showSection('dino')">Pack Dino</button>
   </div>
 
   <header>
-    <img src="images/Logo_Yatsu.png.png" alt="Logo Yatsun'Ark" />
-    <h1>Yatsun'ARK PvE</h1>
-    <p>Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
+    <h1 style="text-shadow: 2px 2px 5px black;">Yatsun'ARK PvE</h1>
+    <p>Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack VIP !</p>
   </header>
 
-  <main id="vip" class="container">
-    <div class="card">
-      <img class="pack-img" src="images/pack1.png" alt="Pack VIP Tiers 1">
-      <h2>Pack VIP Tiers 1 – 7 €</h2>
+  <div id="vip" class="section active">
+    <div class="pack">
+      <img src="pack1.png" alt="Pack VIP T1">
+      <h2>VIP Tier 1</h2>
       <ul>
         <li>2 ✦ Potions de mutation</li>
         <li>2 ✦ Potions Taming</li>
         <li>2 ✦ Potions Instant Adulte</li>
         <li>Dino à 2 000 ✦ Points de shop</li>
       </ul>
-      <a href="https://ko-fi.com/s/6faa608c24" target="_blank">
-        <button class="buy-button">Acheter - 7€</button>
-      </a>
+      <a href="https://ko-fi.com/s/bb664db1c9" target="_blank">Acheter</a>
     </div>
-
-    <div class="card">
-      <img class="pack-img" src="images/pack2.png" alt="Pack VIP Tiers 2">
-      <h2>Pack VIP Tiers 2 – 12 €</h2>
+    <div class="pack">
+      <img src="pack2.png" alt="Pack VIP T2">
+      <h2>VIP Tier 2</h2>
       <ul>
         <li>4 ✦ Potions de mutation</li>
         <li>4 ✦ Potions Taming</li>
         <li>4 ✦ Potions Instant Adulte</li>
         <li>Dino à 4 000 ✦ Points de shop</li>
       </ul>
-      <a href="https://ko-fi.com/s/8d80614cd4" target="_blank">
-        <button class="buy-button">Acheter - 12€</button>
-      </a>
+      <a href="https://ko-fi.com/s/9f4b922273" target="_blank">Acheter</a>
     </div>
-
-    <div class="card">
-      <img class="pack-img" src="images/pack3.png" alt="Pack VIP Tiers 3">
-      <h2>Pack VIP Tiers 3 – 20 €</h2>
+    <div class="pack">
+      <img src="pack3.png" alt="Pack VIP T3">
+      <h2>VIP Tier 3</h2>
       <ul>
         <li>6 ✦ Potions de mutation</li>
         <li>6 ✦ Potions Taming</li>
@@ -267,66 +170,59 @@
         <li>1 ✦ Lust Potion</li>
         <li>Dino à 6 000 ✦ Points de shop</li>
       </ul>
-      <a href="https://ko-fi.com/s/f5511481c6" target="_blank">
-        <button class="buy-button">Acheter - 20€</button>
-      </a>
+      <a href="https://ko-fi.com/s/c6f1909526" target="_blank">Acheter</a>
     </div>
-  </main>
+  </div>
 
-  <div class="divider"></div>
+  <hr>
 
-  <main id="dino" class="container">
-    <div class="card">
-      <img class="pack-img" src="images/dino1.png" alt="Dino Tier 1">
-      <h2>Dino Tier 1 – 4 €</h2>
+  <div id="dino" class="section">
+    <div class="pack">
+      <img src="dino1.png.png" alt="Pack Dino T1">
+      <h2>Dino Tier 1</h2>
       <ul>
-        <li>Dino jusqu’à 2 000 ✦ Points</li>
+        <li>x1 Ptéranodon 275</li>
+        <li>x1 Raptor 275</li>
+        <li>x1 Parasaur 275</li>
+        <li>x1 Ichtyosaure 275</li>
       </ul>
-      <a href="https://ko-fi.com/s/78f3d28e7f" target="_blank">
-        <button class="buy-button">Acheter - 4€</button>
-      </a>
+      <a href="https://ko-fi.com/s/78f3d28e7f" target="_blank">Acheter</a>
     </div>
-
-    <div class="card">
-      <img class="pack-img" src="images/dino2.png" alt="Dino Tier 2">
-      <h2>Dino Tier 2 – 8 €</h2>
+    <div class="pack">
+      <img src="dino2.png.png" alt="Pack Dino T2">
+      <h2>Dino Tier 2</h2>
       <ul>
-        <li>Dino jusqu’à 4 000 ✦ Points</li>
+        <li>x1 Argentavis 275</li>
+        <li>x1 Allosaure 275</li>
+        <li>x1 Doedicurus 275</li>
+        <li>x1 Baryonyx 275</li>
       </ul>
-      <a href="https://ko-fi.com/s/27d68c997c" target="_blank">
-        <button class="buy-button">Acheter - 8€</button>
-      </a>
+      <a href="https://ko-fi.com/s/27d68c997c" target="_blank">Acheter</a>
     </div>
-
-    <div class="card">
-      <img class="pack-img" src="images/dino3.png" alt="Dino Tier 3">
-      <h2>Dino Tier 3 – 12 €</h2>
+    <div class="pack">
+      <img src="dino3.png.png" alt="Pack Dino T3">
+      <h2>Dino Tier 3</h2>
       <ul>
-        <li>Dino jusqu’à 6 000 ✦ Points</li>
+        <li>x1 Megalodon 275</li>
+        <li>x1 Rex 275</li>
+        <li>x1 Ankylosaure 275</li>
+        <li>x1 Wyvern Foudre 275</li>
       </ul>
-      <a href="https://ko-fi.com/s/c3d9634d5d" target="_blank">
-        <button class="buy-button">Acheter - 12€</button>
-      </a>
+      <a href="https://ko-fi.com/s/c3d9634d5d" target="_blank">Acheter</a>
     </div>
-  </main>
+  </div>
 
-  <footer>
-    <p>
-      <a href="https://yatsunark-cvg.netlify.app/" target="_blank" class="cgv-link">Conditions Générales de Vente</a>
-    </p>
-    <a href="https://discord.gg/aJa4UgJmCR" target="_blank">
-      <img src="images/discord_icon.png.png" alt="Discord" />
-    </a>
-    <p>Rejoins notre communauté sur Discord !</p>
-  </footer>
+  <div class="discord">
+    <img src="discord_icon.png.png" alt="Discord">
+    <p>Rejoins notre communauté sur Discord</p>
+  </div>
 
   <script>
     function showSection(id) {
-      const sections = ['vip', 'dino'];
-      sections.forEach(sec => {
-        document.getElementById(sec).classList.add('hidden');
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
       });
-      document.getElementById(id).classList.remove('hidden');
+      document.getElementById(id).classList.add('active');
     }
   </script>
 </body>
