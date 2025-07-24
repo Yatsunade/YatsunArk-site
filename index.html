@@ -14,7 +14,6 @@
       overflow-x: hidden;
       width: 100%;
     }
-
     body::before {
       content: "";
       position: fixed;
@@ -27,7 +26,6 @@
       z-index: -2;
       transform: scale(1.05);
     }
-
     body::after {
       content: "";
       position: fixed;
@@ -35,7 +33,6 @@
       background-color: rgba(0, 0, 0, 0.35);
       z-index: -1;
     }
-
     .nav-wrapper {
       position: relative;
       left: 50%;
@@ -44,21 +41,17 @@
       margin-right: -50vw;
       width: 100vw;
     }
-
     .nav-tabs {
       display: flex;
-      justify-content: center;
+      align-items: center;
       background-color: rgba(0, 0, 0, 0.7);
       padding: 10px 0;
       position: sticky;
       top: 0;
       z-index: 10;
-      width: 100vw;
-      left: 0;
-      margin: 0;
+      width: 100%;
       box-sizing: border-box;
     }
-
     .tab-button {
       background: none;
       border: none;
@@ -68,18 +61,15 @@
       cursor: pointer;
       transition: color 0.3s;
     }
-
     .tab-button:hover,
     .tab-button.active {
       color: #00bfff;
     }
-
     .lang-dropdown {
-      position: relative;
       margin-left: auto;
       margin-right: 20px;
+      position: relative;
     }
-
     .lang-toggle {
       background: none;
       border: none;
@@ -90,13 +80,11 @@
       align-items: center;
       gap: 6px;
     }
-
     .lang-toggle img {
       width: 20px;
       height: 14px;
       border-radius: 2px;
     }
-
     .lang-menu {
       display: none;
       position: absolute;
@@ -108,7 +96,6 @@
       overflow: hidden;
       z-index: 20;
     }
-
     .lang-option {
       display: flex;
       align-items: center;
@@ -118,57 +105,41 @@
       cursor: pointer;
       transition: background-color 0.2s;
     }
-
     .lang-option:hover {
       background-color: #00bfff;
     }
-
     .lang-option img {
       width: 20px;
       height: 14px;
       border-radius: 2px;
     }
-
     header {
       background-color: transparent;
       padding: 20px;
       text-align: center;
     }
-
     header img {
       width: 180px;
       display: block;
       margin: 0 auto 10px auto;
     }
-
     header h1 {
       margin: 0;
       font-size: 3rem;
       color: #00bfff;
       font-family: 'Cinzel', serif;
-      text-shadow:
-        -2px -2px 0 #000,
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000,
-        -2px  0px 0 #000,
-         2px  0px 0 #000,
-         0px -2px 0 #000,
-         0px  2px 0 #000;
+      text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
     }
-
     header p {
       margin-top: 6px;
       font-size: 1.2rem;
       color: #ddd;
     }
-
     .container {
       max-width: 1200px;
       margin: 0 auto 50px auto;
       padding: 30px 15px;
     }
-
     .packs-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -178,7 +149,6 @@
       transform: translateY(0);
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
-
     .packs-grid.hidden {
       opacity: 0;
       transform: translateY(10px);
@@ -186,7 +156,6 @@
       height: 0;
       overflow: hidden;
     }
-
     .card {
       background-color: rgba(31, 31, 31, 0.85);
       border-radius: 12px;
@@ -199,31 +168,26 @@
       max-width: 340px;
       margin: 0 auto;
     }
-
     .card img.pack-img {
       width: 100%;
       height: auto;
       border-radius: 8px;
       margin-bottom: 12px;
     }
-
     .card h2 {
       margin-top: 0;
       color: #00bfff;
     }
-
     .card ul {
       text-align: left;
       padding-left: 20px;
       margin-bottom: 10px;
       color: #ccc;
     }
-
     .card a {
       margin-top: auto;
       align-self: center;
     }
-
     .buy-button {
       background-color: #00bfff;
       color: white;
@@ -234,11 +198,9 @@
       font-size: 1rem;
       transition: background-color 0.3s ease;
     }
-
     .buy-button:hover {
       background-color: #009acc;
     }
-
     hr {
       border: none;
       border-top: 2px solid #00bfff;
@@ -246,23 +208,19 @@
       max-width: 600px;
       opacity: 0.6;
     }
-
     footer {
       text-align: center;
       padding: 20px;
       margin-top: 40px;
     }
-
     footer img {
       width: 48px;
       height: 48px;
     }
-
     footer p {
       color: #aaa;
       margin-top: 8px;
     }
-
     .cgv-link {
       color: #00bfff;
       text-decoration: underline;
@@ -270,11 +228,9 @@
       margin-bottom: 10px;
       display: inline-block;
     }
-
     .cgv-link:hover {
       color: #66d3ff;
     }
-
     @media (max-width: 768px) {
       .packs-grid {
         grid-template-columns: 1fr;
@@ -289,20 +245,18 @@
       <button class="tab-button active" data-target="all">Tous</button>
       <button class="tab-button" data-target="vip">Packs VIP</button>
       <button class="tab-button" data-target="dino">Packs Dino</button>
-
       <div class="lang-dropdown">
-        <button class="lang-toggle">
-          <img src="images/fr.png" alt="Français" />
-          <span>FR</span>
-          ▼
+        <button class="lang-toggle" id="langToggle">
+          <img src="images/fr.png" alt="FR" id="langFlag" />
+          <span id="langLabel">FR</span> ▼
         </button>
-        <div class="lang-menu">
+        <div class="lang-menu" id="langMenu">
           <div class="lang-option" onclick="setLanguage('fr')">
-            <img src="images/fr.png" alt="Français" />
+            <img src="images/fr.png" alt="FR" />
             <span>Français</span>
           </div>
           <div class="lang-option" onclick="setLanguage('en')">
-            <img src="images/en.png" alt="English" />
+            <img src="images/en.png" alt="EN" />
             <span>English</span>
           </div>
         </div>
@@ -313,17 +267,39 @@
   <header>
     <img src="images/Logo_Yatsu.png.png" alt="Logo Yatsun'Ark" />
     <h1>Yatsun'ARK PvE</h1>
-    <p style="font-family: 'Cinzel', serif;">Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
+    <p>Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos packs VIP !</p>
   </header>
 
   <main class="container">
-    <!-- packs VIP et DINO inchangés -->
+    <section class="packs-grid section-vip">
+      <div class="card">
+        <img class="pack-img" src="images/pack_vip1.png" alt="Pack VIP 1">
+        <h2>Pack VIP 1</h2>
+        <ul>
+          <li>Avantage 1</li>
+          <li>Avantage 2</li>
+        </ul>
+        <a href="#" class="buy-button">Acheter</a>
+      </div>
+    </section>
+
+    <hr>
+
+    <section class="packs-grid section-dino">
+      <div class="card">
+        <img class="pack-img" src="images/pack_dino1.png" alt="Pack Dino 1">
+        <h2>Pack Dino 1</h2>
+        <ul>
+          <li>Dino spécial</li>
+          <li>Selle incluse</li>
+        </ul>
+        <a href="#" class="buy-button">Acheter</a>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>
-      <a href="https://yatsunark-cvg.netlify.app/" target="_blank" class="cgv-link">Conditions Générales de Vente</a>
-    </p>
+    <p><a href="https://yatsunark-cvg.netlify.app/" target="_blank" class="cgv-link">Conditions Générales de Vente</a></p>
     <a href="https://discord.gg/aJa4UgJmCR" target="_blank" rel="noopener noreferrer">
       <img src="images/discord_icon.png.png" alt="Discord" />
     </a>
@@ -336,5 +312,47 @@
     const dinoSection = document.querySelector('.section-dino');
     const hr = document.querySelector('hr');
 
-    function updateView(target) {
-      buttons.forEach(bt
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const target = btn.dataset.target;
+        if (target === 'vip') {
+          vipSection.classList.remove('hidden');
+          dinoSection.classList.add('hidden');
+          hr.style.display = 'none';
+        } else if (target === 'dino') {
+          vipSection.classList.add('hidden');
+          dinoSection.classList.remove('hidden');
+          hr.style.display = 'none';
+        } else {
+          vipSection.classList.remove('hidden');
+          dinoSection.classList.remove('hidden');
+          hr.style.display = 'block';
+        }
+      });
+    });
+
+    const langToggle = document.getElementById('langToggle');
+    const langMenu = document.getElementById('langMenu');
+    const langFlag = document.getElementById('langFlag');
+    const langLabel = document.getElementById('langLabel');
+
+    langToggle.addEventListener('click', () => {
+      langMenu.style.display = langMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!document.querySelector('.lang-dropdown').contains(e.target)) {
+        langMenu.style.display = 'none';
+      }
+    });
+
+    function setLanguage(lang) {
+      langFlag.src = `images/${lang}.png`;
+      langLabel.textContent = lang.toUpperCase();
+      langMenu.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
