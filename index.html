@@ -109,6 +109,22 @@
       font-family: 'Cinzel', serif;
     }
 
+        .lang-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .lang-selector select {
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: 1px solid #00bfff;
+      padding: 6px 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    
     .container {
       max-width: 1200px;
       margin: 0 auto 50px auto;
@@ -230,9 +246,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="lang-selector">
+    <select id="languageSwitcher">
+      <option value="fr">🇫🇷 FR</option>
+      <option value="en">🇬🇧 EN</option>
+    </select>
+  </div>
+  
   <div class="nav-wrapper">
     <div class="nav-tabs">
-      <button class="tab-button active" data-target="all">Tous</button>
+      <button class="tab-button active" data-target="all" >{t('tabAll')}</button>
       <button class="tab-button" data-target="vip">Packs VIP</button>
       <button class="tab-button" data-target="dino">Packs Dino</button>
     </div>
@@ -349,6 +372,33 @@
     <p>Rejoins notre communauté sur Discord !</p>
   </footer>
 
+  <script>
+    async function loadTranslations(lang) {
+      const res = await fetch(`locales/${lang}.json`);
+      const translations = await res.json();
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const keys = el.getAttribute("data-i18n").split(".");
+        let text = translations;
+        keys.forEach(k => text = text?.[k]);
+        if (text) el.innerHTML = text;
+      });
+
+      document.documentElement.lang = lang;
+    }
+
+    const switcher = document.getElementById("languageSwitcher");
+    switcher.addEventListener("change", () => {
+      localStorage.setItem("lang", switcher.value);
+      loadTranslations(switcher.value);
+    });
+
+    const savedLang = localStorage.getItem("lang") || "fr";
+    switcher.value = savedLang;
+    loadTranslations(savedLang);
+  </script>
+
+  
   <script>
     const buttons = document.querySelectorAll('.tab-button');
     const vipSection = document.querySelector('.section-vip');
