@@ -264,7 +264,7 @@
 </head>
 <body>
 <div class="lang-selector">
-  <img id="flag-icon" src="locales/fr.png" alt="Drapeau langue" class="flag-icon">
+  <img id="flag-icon" src="images/fr.png" alt="Drapeau langue" class="flag-icon">
   <select id="languageSwitcher">
     <option value="fr">FR</option>
     <option value="en">EN</option>
@@ -421,7 +421,7 @@
   const flagIcon = document.getElementById("flag-icon");
 
   function updateFlag(lang) {
-    flagIcon.src = `locales/${lang}.png`;
+    flagIcon.src = `images/${lang}.png`;
   }
 
   updateFlag(savedLang);
