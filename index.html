@@ -113,6 +113,11 @@
       position: absolute;
       top: 20px;
       right: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
     }
 
     .lang-selector select {
@@ -123,15 +128,6 @@
       font-size: 1rem;
       border-radius: 6px;
       cursor: pointer;
-    }
-
-    .lang-selector {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
    .flag-icon {
@@ -263,16 +259,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="lang-selector">
-  <img id="flag-icon" src="images/fr.png" alt="Drapeau langue" class="flag-icon">
-  <select id="languageSwitcher">
-    <option value="fr">FR</option>
-    <option value="en">EN</option>
+  <div class="nav-wrapper">
+   <div class="lang-selector">
+    <img id="flag-icon" src="images/fr.png" alt="Drapeau langue" class="flag-icon">
+     <select id="languageSwitcher">
+      <option value="fr">FR</option>
+       <option value="en">EN</option>
   </select>
 </div>
 
-  
-  <div class="nav-wrapper">
     <div class="nav-tabs">
       <button class="tab-button active" data-target="all" data-i18n="tabAll" >Tous</button>
       <button class="tab-button active" data-target="all" data-i18n="tabVIP">Packs VIP</button>
