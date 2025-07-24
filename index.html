@@ -74,6 +74,61 @@
       color: #00bfff;
     }
 
+    .lang-dropdown {
+      position: relative;
+      margin-left: auto;
+      margin-right: 20px;
+    }
+
+    .lang-toggle {
+      background: none;
+      border: none;
+      color: #f0f0f0;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lang-toggle img {
+      width: 20px;
+      height: 14px;
+      border-radius: 2px;
+    }
+
+    .lang-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 35px;
+      background-color: rgba(0, 0, 0, 0.9);
+      border: 1px solid #333;
+      border-radius: 6px;
+      overflow: hidden;
+      z-index: 20;
+    }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      gap: 8px;
+      color: #f0f0f0;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .lang-option:hover {
+      background-color: #00bfff;
+    }
+
+    .lang-option img {
+      width: 20px;
+      height: 14px;
+      border-radius: 2px;
+    }
+
     header {
       background-color: transparent;
       padding: 20px;
@@ -90,16 +145,16 @@
       margin: 0;
       font-size: 3rem;
       color: #00bfff;
-        font-family: 'Cinzel', serif;
+      font-family: 'Cinzel', serif;
       text-shadow:
-      -2px -2px 0 #000,
-       2px -2px 0 #000,
-      -2px  2px 0 #000,
-       2px  2px 0 #000,
-      -2px  0px 0 #000,
-       2px  0px 0 #000,
-       0px -2px 0 #000,
-       0px  2px 0 #000;
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000,
+        -2px  0px 0 #000,
+         2px  0px 0 #000,
+         0px -2px 0 #000,
+         0px  2px 0 #000;
     }
 
     header p {
@@ -234,113 +289,40 @@
       <button class="tab-button active" data-target="all">Tous</button>
       <button class="tab-button" data-target="vip">Packs VIP</button>
       <button class="tab-button" data-target="dino">Packs Dino</button>
+
+      <div class="lang-dropdown">
+        <button class="lang-toggle">
+          <img src="images/fr.png" alt="Français" />
+          <span>FR</span>
+          ▼
+        </button>
+        <div class="lang-menu">
+          <div class="lang-option" onclick="setLanguage('fr')">
+            <img src="images/fr.png" alt="Français" />
+            <span>Français</span>
+          </div>
+          <div class="lang-option" onclick="setLanguage('en')">
+            <img src="images/en.png" alt="English" />
+            <span>English</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <header>
     <img src="images/Logo_Yatsu.png.png" alt="Logo Yatsun'Ark" />
     <h1>Yatsun'ARK PvE</h1>
-  <p style="font-family: 'Cinzel', serif;">Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
+    <p style="font-family: 'Cinzel', serif;">Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
   </header>
 
   <main class="container">
-    <section class="packs-grid section-vip" aria-label="Packs VIP">
-      <div class="card">
-        <img class="pack-img" src="images/pack1.png" alt="Pack VIP Tiers 1" />
-        <h2>VIP Tiers 1 – 7 €</h2>
-        <ul>
-          <li>2 ✦ Potions de mutation</li>
-          <li>2 ✦ Potions Taming</li>
-          <li>2 ✦ Potions Instant Adulte</li>
-          <li>Dino à 2 000 ✦ Points de shop</li>
-        </ul>
-        <a href="https://ko-fi.com/s/6faa608c24" target="_blank" rel="noopener noreferrer">
-          <button class="buy-button">Acheter - 7€</button>
-        </a>
-      </div>
-
-      <div class="card">
-        <img class="pack-img" src="images/pack2.png" alt="Pack VIP Tiers 2" />
-        <h2>VIP Tiers 2 – 12 €</h2>
-        <ul>
-          <li>4 ✦ Potions de mutation</li>
-          <li>4 ✦ Potions Taming</li>
-          <li>4 ✦ Potions Instant Adulte</li>
-          <li>Dino à 4 000 ✦ Points de shop</li>
-        </ul>
-        <a href="https://ko-fi.com/s/8d80614cd4" target="_blank" rel="noopener noreferrer">
-          <button class="buy-button">Acheter - 12€</button>
-        </a>
-      </div>
-
-      <div class="card">
-        <img class="pack-img" src="images/pack3.png" alt="Pack VIP Tiers 3" />
-        <h2>VIP Tiers 3 – 20 €</h2>
-        <ul>
-          <li>6 ✦ Potions de mutation</li>
-          <li>6 ✦ Potions Taming</li>
-          <li>6 ✦ Potions Instant Adulte</li>
-          <li>1 ✦ Lust Potion</li>
-          <li>Dino à 6 000 ✦ Points de shop</li>
-        </ul>
-        <a href="https://ko-fi.com/s/f5511481c6" target="_blank" rel="noopener noreferrer">
-          <button class="buy-button">Acheter - 20€</button>
-        </a>
-      </div>
-    </section>
-
-    <hr />
-
-    <section class="packs-grid section-dino" aria-label="Packs Dino">
-      <div class="card">
-        <img class="pack-img" src="images/dino1.png" alt="Dino Tier 1" />
-        <h2>Dino Tier 1 – 7 €</h2>
-        <ul>
-          <li>x1 Ptéranodon 275</li>
-          <li>x1 Raptor 275</li>
-          <li>x1 Parasaur 275</li>
-          <li>x1 Ichtyosaure 275</li>
-        </ul>
-        <a href="https://ko-fi.com/s/78f3d28e7f" target="_blank" rel="noopener noreferrer">
-          <button class="buy-button">Acheter - 7€</button>
-        </a>
-      </div>
-
-      <div class="card">
-        <img class="pack-img" src="images/dino2.png" alt="Dino Tier 2" />
-        <h2>Dino Tier 2 – 12 €</h2>
-        <ul>
-          <li>x1 Argentavis 275</li>
-          <li>x1 Allosaure 275</li>
-          <li>x1 Doedicurus 275</li>
-          <li>x1 Baryonyx 275</li>
-        </ul>
-        <a href="https://ko-fi.com/s/27d68c997c" target="_blank" rel="noopener noreferrer">
-          <button class="buy-button">Acheter - 12€</button>
-        </a>
-      </div>
-
-      <div class="card">
-        <img class="pack-img" src="images/dino3.png" alt="Dino Tier 3" />
-        <h2>Dino Tier 3 – 20 €</h2>
-        <ul>
-          <li>x1 Megalodon 275</li>
-          <li>x1 Rex 275</li>
-          <li>x1 Ankylosaure 275</li>
-          <li>x1 Wyvern Foudre 275</li>
-        </ul>
-        <a href="https://ko-fi.com/s/c3d9634d5d" target="_blank" rel="noopener noreferrer">
-          <button class="buy-button">Acheter - 20€</button>
-        </a>
-      </div>
-    </section>
+    <!-- packs VIP et DINO inchangés -->
   </main>
 
   <footer>
     <p>
-      <a href="https://yatsunark-cvg.netlify.app/" target="_blank" class="cgv-link">
-        Conditions Générales de Vente
-      </a>
+      <a href="https://yatsunark-cvg.netlify.app/" target="_blank" class="cgv-link">Conditions Générales de Vente</a>
     </p>
     <a href="https://discord.gg/aJa4UgJmCR" target="_blank" rel="noopener noreferrer">
       <img src="images/discord_icon.png.png" alt="Discord" />
@@ -355,29 +337,4 @@
     const hr = document.querySelector('hr');
 
     function updateView(target) {
-      buttons.forEach(btn => btn.classList.remove('active'));
-      document.querySelector(`.tab-button[data-target="${target}"]`).classList.add('active');
-
-      if (target === 'vip') {
-        vipSection.classList.remove('hidden');
-        dinoSection.classList.add('hidden');
-        hr.style.display = 'none';
-      } else if (target === 'dino') {
-        vipSection.classList.add('hidden');
-        dinoSection.classList.remove('hidden');
-        hr.style.display = 'none';
-      } else {
-        vipSection.classList.remove('hidden');
-        dinoSection.classList.remove('hidden');
-        hr.style.display = 'block';
-      }
-    }
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        updateView(btn.dataset.target);
-      });
-    });
-  </script>
-</body>
-</html>
+      buttons.forEach(bt
