@@ -21,7 +21,7 @@
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-image: url('images/tropical_background.png.png');
+      background-image: url('images/tropical_background.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -63,7 +63,7 @@
       color: #ddd;
     }
 
-    .lang-dropdown {
+    .lang-menu {
       position: absolute;
       top: 20px;
       right: 20px;
@@ -73,112 +73,206 @@
       background: none;
       border: none;
       color: #f0f0f0;
-      font-size: 0.95rem;
+      font-size: 1rem;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 6px;
     }
 
     .lang-toggle img {
       width: 20px;
       height: 14px;
-      border-radius: 2px;
+      margin-right: 6px;
     }
 
-    .lang-menu {
+    .lang-list {
       display: none;
       position: absolute;
       right: 0;
-      top: 35px;
-      background-color: rgba(0, 0, 0, 0.9);
-      border: 1px solid #333;
+      background: rgba(0,0,0,0.8);
       border-radius: 6px;
       overflow: hidden;
-      z-index: 20;
     }
 
-    .lang-option {
+    .lang-list button {
       display: flex;
       align-items: center;
       padding: 8px 12px;
-      gap: 8px;
-      color: #f0f0f0;
+      background: none;
+      border: none;
+      color: white;
       cursor: pointer;
-      transition: background-color 0.2s;
+      width: 100%;
     }
 
-    .lang-option:hover {
+    .lang-list button:hover {
+      background: #00bfff;
+    }
+
+    .lang-list button img {
+      width: 20px;
+      height: 14px;
+      margin-right: 8px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px 0;
+      margin-bottom: 30px;
+    }
+
+    .nav-tabs a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .nav-tabs a:hover,
+    .nav-tabs a.active {
       background-color: #00bfff;
     }
 
-    .lang-option img {
-      width: 20px;
-      height: 14px;
-      border-radius: 2px;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto 50px auto;
+      padding: 30px 15px;
+    }
+
+    .packs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: rgba(31, 31, 31, 0.85);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+      text-align: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    .card img.pack-img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #00bfff;
+    }
+
+    .card ul {
+      text-align: left;
+      padding-left: 20px;
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+
+    .buy-button {
+      background-color: #00bfff;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .buy-button:hover {
+      background-color: #009acc;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid #00bfff;
+      margin: 40px auto;
+      max-width: 600px;
+      opacity: 0.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer img {
+      width: 48px;
+      height: 48px;
+    }
+
+    footer p {
+      color: #aaa;
+      margin-top: 8px;
+    }
+
+    .cgv-link {
+      color: #00bfff;
+      text-decoration: underline;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .cgv-link:hover {
+      color: #66d3ff;
+    }
+
+    @media (max-width: 768px) {
+      .packs-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="lang-dropdown">
-      <button class="lang-toggle">
-        <img src="images/fr.png" alt="Français">
-        <span>FR</span>
-        ▼
+    <div class="lang-menu">
+      <button class="lang-toggle" onclick="toggleLangMenu()">
+        <img src="images/fr.png" alt="FR"> FR
       </button>
-      <div class="lang-menu">
-        <div class="lang-option" onclick="setLanguage('fr')">
-          <img src="images/fr.png" alt="Français">
-          <span>Français</span>
-        </div>
-        <div class="lang-option" onclick="setLanguage('en')">
-          <img src="images/en.png" alt="English">
-          <span>English</span>
-        </div>
+      <div class="lang-list" id="langList">
+        <button onclick="switchLang('fr')"><img src="images/fr.png" alt="FR"> Français</button>
+        <button onclick="switchLang('en')"><img src="images/en.png" alt="EN"> English</button>
       </div>
     </div>
-    <img src="images/Logo_Yatsu.png.png" alt="Logo Yatsun'Ark" />
-    <h1 id="title">Yatsun'ARK PvE</h1>
-    <p id="subtitle">Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
+    <img src="images/Logo_Yatsu.png" alt="Logo Yatsun'Ark" />
+    <h1>Yatsun'ARK PvE</h1>
+    <p id="header-desc">Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
   </header>
 
-  <!-- ... reste du contenu inchangé ... -->
+  <nav class="nav-tabs">
+    <a href="#" class="active" onclick="toggleTab('vip')">Packs VIP</a>
+    <a href="#" onclick="toggleTab('dino')">Packs Dino</a>
+  </nav>
 
   <script>
-    const langToggle = document.querySelector('.lang-toggle');
-    const langMenu = document.querySelector('.lang-menu');
+    function toggleLangMenu() {
+      document.getElementById("langList").style.display =
+        document.getElementById("langList").style.display === "block" ? "none" : "block";
+    }
 
-    langToggle.addEventListener('click', () => {
-      langMenu.style.display = langMenu.style.display === 'block' ? 'none' : 'block';
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!document.querySelector('.lang-dropdown').contains(e.target)) {
-        langMenu.style.display = 'none';
-      }
-    });
-
-    function setLanguage(lang) {
-      const translations = {
-        fr: {
-          title: "Yatsun'ARK PvE",
-          subtitle: "Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !"
-        },
-        en: {
-          title: "Yatsun'ARK PvE",
-          subtitle: "Support the Yatsun'Ark cluster and team by purchasing our VIP packs!"
-        }
-      };
-
-      document.getElementById('title').textContent = translations[lang].title;
-      document.getElementById('subtitle').textContent = translations[lang].subtitle;
-
-      const flag = lang === 'fr' ? 'images/fr.png' : 'images/en.png';
-      const label = lang.toUpperCase();
-      document.querySelector('.lang-toggle img').src = flag;
-      document.querySelector('.lang-toggle span').textContent = label;
-      langMenu.style.display = 'none';
+    function switchLang(lang) {
+      document.documentElement.lang = lang;
+      document.getElementById("header-desc").textContent =
+        lang === "en" ? "Support the Yatsun'Ark cluster and team by purchasing our VIP packs!" :
+                        "Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !";
+      document.getElementById("langList").style.display = "none";
     }
   </script>
 </body>
