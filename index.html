@@ -108,7 +108,23 @@
       color: #ddd;
       font-family: 'Cinzel', serif;
     }
+   
+    .lang-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
 
+    .lang-selector select {
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: 1px solid #00bfff;
+      padding: 6px 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    
     .container {
       max-width: 1200px;
       margin: 0 auto 50px auto;
@@ -230,62 +246,69 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="lang-selector">
+    <select id="languageSwitcher">
+      <option value="fr">🇫🇷 FR</option>
+      <option value="en">🇬🇧 EN</option>
+    </select>
+  </div>
+  
   <div class="nav-wrapper">
     <div class="nav-tabs">
-      <button class="tab-button active" data-target="all">Tous</button>
-      <button class="tab-button" data-target="vip">Packs VIP</button>
-      <button class="tab-button" data-target="dino">Packs Dino</button>
+      <button class="tab-button active" data-target="all" data-i18n="tabs.all">Tous</button>
+      <button class="tab-button" data-target="vip" data-i18n="tabs.vip">Packs VIP</button>
+      <button class="tab-button" data-target="dino" data-i18n="tabs.dino">Packs Dino</button>
     </div>
   </div>
 
   <header>
     <img src="images/Logo_Yatsu.png.png" alt="Logo Yatsun'Ark" />
     <h1>Yatsun'ARK PvE</h1>
-    <p>Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
+    <p> data-i18n="header.subtitle">Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !</p>
   </header>
 
   <main class="container">
     <section class="packs-grid section-vip" aria-label="Packs VIP">
       <div class="card">
         <img class="pack-img" src="images/pack1.png" alt="Pack VIP Tiers 1" />
-        <h2>VIP Tiers 1 – 7 €</h2>
+        <h2>VIP Tier 1 – 7 €</h2>
         <ul>
-          <li>2 ✦ Potions de mutation</li>
-          <li>2 ✦ Potions Taming</li>
-          <li>2 ✦ Potions Instant Adulte</li>
-          <li>Dino(s) à 2 000 ✦ Points de shop</li>
+          <li> data-i18n="packs.vip1Desc1"2 ✦ Potions de mutation</li>
+          <li> data-i18n="packs.vip1Desc2"2 ✦ Potions Taming</li>
+          <li> data-i18n="packs.vip1Desc3"2 ✦ Potions Instant Adulte</li>
+          <li> data-i18n="packs.vip1Desc4"Dino(s) à 2 000 ✦ Points de shop</li>
         </ul>
         <a href="https://ko-fi.com/s/6faa608c24" target="_blank">
-          <button class="buy-button">Acheter - 7€</button>
+          <button class="buy-button" data-i18n="packs.vip1Buy">Acheter - 7€</button>
         </a>
       </div>
 
       <div class="card">
         <img class="pack-img" src="images/pack2.png" alt="Pack VIP Tiers 2" />
-        <h2>VIP Tiers 2 – 12 €</h2>
+        <h2>VIP Tier 2 – 12 €</h2>
         <ul>
-          <li>4 ✦ Potions de mutation</li>
-          <li>4 ✦ Potions Taming</li>
-          <li>4 ✦ Potions Instant Adulte</li>
-          <li>Dino(s) à 4 000 ✦ Points de shop</li>
+          <li> data-i18n="packs.vip2Desc1"4 ✦ Potions de mutation</li>
+          <li> data-i18n="packs.vip2Desc2"4 ✦ Potions Taming</li>
+          <li> data-i18n="packs.vip2Desc3"4 ✦ Potions Instant Adulte</li>
+          <li> data-i18n="packs.vip2Desc4"Dino(s) à 4 000 ✦ Points de shop</li>
         </ul>
         <a href="https://ko-fi.com/s/8d80614cd4" target="_blank">
-          <button class="buy-button">Acheter - 12€</button>
+          <button class="buy-button" data-i18n="packs.vip2Buy">Acheter - 12€</button>
         </a>
       </div>
 
       <div class="card">
         <img class="pack-img" src="images/pack3.png" alt="Pack VIP Tiers 3" />
-        <h2>VIP Tiers 3 – 20 €</h2>
+        <h2>VIP Tier 3 – 20 €</h2>
         <ul>
-          <li>6 ✦ Potions de mutation</li>
-          <li>6 ✦ Potions Taming</li>
-          <li>6 ✦ Potions Instant Adulte</li>
-          <li>1 ✦ Lust Potion</li>
-          <li>Dino(s) à 6 000 ✦ Points de shop</li>
+          <li> data-i18n="packs.vip3Desc1"6 ✦ Potions de mutation</li>
+          <li> data-i18n="packs.vip3Desc2"6 ✦ Potions Taming</li>
+          <li> data-i18n="packs.vip3Desc3"6 ✦ Potions Instant Adulte</li>
+          <li> data-i18n="packs.vip3Desc4"1 ✦ Lust Potion</li>
+          <li> data-i18n="packs.vip3Desc5"Dino(s) à 6 000 ✦ Points de shop</li>
         </ul>
         <a href="https://ko-fi.com/s/f5511481c6" target="_blank">
-          <button class="buy-button">Acheter - 20€</button>
+          <button class="buy-button" data-i18n="packs.vip3Buy">Acheter - 20€</button>
         </a>
       </div>
     </section>
@@ -297,13 +320,13 @@
         <img class="pack-img" src="images/dino1.png" alt="Dino Tier 1" />
         <h2>Dino Tier 1 – 7 €</h2>
         <ul>
-          <li>x1 Ptéranodon 275</li>
-          <li>x1 Raptor 275</li>
-          <li>x1 Parasaur 275</li>
-          <li>x1 Ichtyosaure 275</li>
+          <li> data-i18n="packs.dino1Desc1"x1 Ptéranodon 275</li>
+          <li> data-i18n="packs.dino1Desc2"x1 Raptor 275</li>
+          <li> data-i18n="packs.dino1Desc3"x1 Parasaur 275</li>
+          <li> data-i18n="packs.dino1Desc4"x1 Ichtyosaure 275</li>
         </ul>
         <a href="https://ko-fi.com/s/78f3d28e7f" target="_blank">
-          <button class="buy-button">Acheter - 7€</button>
+          <button class="buy-button" data-i18n="packs.dino1Buy">Acheter - 7€</button>
         </a>
       </div>
 
@@ -311,13 +334,13 @@
         <img class="pack-img" src="images/dino2.png" alt="Dino Tier 2" />
         <h2>Dino Tier 2 – 12 €</h2>
         <ul>
-          <li>x1 Argentavis 275</li>
-          <li>x1 Allosaure 275</li>
-          <li>x1 Doedicurus 275</li>
-          <li>x1 Baryonyx 275</li>
+          <li> data-i18n="packs.dino2Desc1"x1 Argentavis 275</li>
+          <li> data-i18n="packs.dino2Desc2"x1 Allosaure 275</li>
+          <li> data-i18n="packs.dino2Desc3"x1 Doedicurus 275</li>
+          <li> data-i18n="packs.dino2Desc4"x1 Baryonyx 275</li>
         </ul>
         <a href="https://ko-fi.com/s/27d68c997c" target="_blank">
-          <button class="buy-button">Acheter - 12€</button>
+          <button class="buy-button" data-i18n="packs.dino2Buy">Acheter - 12€</button>
         </a>
       </div>
 
@@ -325,13 +348,13 @@
         <img class="pack-img" src="images/dino3.png" alt="Dino Tier 3" />
         <h2>Dino Tier 3 – 20 €</h2>
         <ul>
-          <li>x1 Megalodon 275</li>
-          <li>x1 Rex 275</li>
-          <li>x1 Ankylosaure 275</li>
-          <li>x1 Wyvern Foudre 275</li>
+          <li> data-i18n="packs.dino3Desc1"x1 Megalodon 275</li>
+          <li> data-i18n="packs.dino3Desc2"x1 Rex 275</li>
+          <li> data-i18n="packs.dino3Desc3"x1 Ankylosaure 275</li>
+          <li> data-i18n="packs.dino3Desc4"x1 Wyvern Foudre 275</li>
         </ul>
         <a href="https://ko-fi.com/s/c3d9634d5d" target="_blank">
-          <button class="buy-button">Acheter - 20€</button>
+          <button class="buy-button" data-i18n="packs.dino3Buy">Acheter - 20€</button>
         </a>
       </div>
     </section>
@@ -339,15 +362,41 @@
 
   <footer>
     <p>
-      <a href="https://yatsunark-cvg.netlify.app/" target="_blank" class="cgv-link">
+      <a href="https://yatsunark-cvg.netlify.app/" target="_blank" class="cgv-link"> data-i18n="footer.cgvText">
         Conditions Générales de Vente
       </a>
     </p>
     <a href="https://discord.gg/aJa4UgJmCR" target="_blank">
       <img src="images/discord_icon.png.png" alt="Discord" />
     </a>
-    <p>Rejoins notre communauté sur Discord !</p>
+    <p> data-i18n="footer.join">Rejoins notre communauté sur Discord !</p>
   </footer>
+  
+<script>
+    async function loadTranslations(lang) {
+      const res = await fetch(`locales/${lang}.json`);
+      const translations = await res.json();
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const keys = el.getAttribute("data-i18n").split(".");
+        let text = translations;
+        keys.forEach(k => text = text?.[k]);
+        if (text) el.innerHTML = text;
+      });
+
+      document.documentElement.lang = lang;
+    }
+
+    const switcher = document.getElementById("languageSwitcher");
+    switcher.addEventListener("change", () => {
+      localStorage.setItem("lang", switcher.value);
+      loadTranslations(switcher.value);
+    });
+
+    const savedLang = localStorage.getItem("lang") || "fr";
+    switcher.value = savedLang;
+    loadTranslations(savedLang);
+  </script>
 
   <script>
     const buttons = document.querySelectorAll('.tab-button');
