@@ -45,7 +45,9 @@
       z-index: 10;
       width: 100vw;
       left: 0;
+      margin: 0;
       box-sizing: border-box;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     .tab-button {
       background: none;
@@ -172,7 +174,7 @@
     }
     .fade-section {
       opacity: 1;
-      transition: opacity 1s ease;
+      transition: opacity 0.5s ease;
       position: relative;
     }
     .fade-hidden {
@@ -290,56 +292,11 @@
   </main>
   <footer>
     <a class="cgv-link" href="https://yatsunark.com/cgv">Conditions Générales de Vente</a>
-    <img src="images/logoYatsuMini.png" alt="Logo Yatsun'Ark Mini" />
+    <img src="images/discord_icon.png.png" alt="Logo Yatsun'Ark Mini" />
     <p>© Yatsun'Ark 2025</p>
   </footer>
   <script>
     const buttons = document.querySelectorAll('.tab-button');
     const vipSection = document.getElementById('vip');
     const dinoSection = document.getElementById('dino');
-    const separator = document.getElementById('separator');
-
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        buttons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        const target = button.dataset.target;
-
-        function fadeOut(element, callback) {
-          element.classList.add('fade-hidden');
-          setTimeout(callback, 1000);
-        }
-        function fadeIn(element) {
-          element.classList.remove('fade-hidden');
-        }
-
-        if (target === 'all') {
-          fadeOut(vipSection, () => {
-            fadeOut(dinoSection, () => {
-              vipSection.style.display = 'grid';
-              dinoSection.style.display = 'grid';
-              separator.style.display = 'block';
-              fadeIn(vipSection);
-              fadeIn(dinoSection);
-            });
-          });
-        } else if (target === 'vip') {
-          fadeOut(dinoSection, () => {
-            dinoSection.style.display = 'none';
-            separator.style.display = 'none';
-            vipSection.style.display = 'grid';
-            fadeIn(vipSection);
-          });
-        } else if (target === 'dino') {
-          fadeOut(vipSection, () => {
-            vipSection.style.display = 'none';
-            separator.style.display = 'none';
-            dinoSection.style.display = 'grid';
-            fadeIn(dinoSection);
-          });
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+    const separator = document.get
