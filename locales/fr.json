@@ -1,0 +1,66 @@
+{
+  "headerTitle": "Yatsun'ARK PvE",
+  "headerSubtitle": "Soutiens le cluster et l'équipe Yatsun'Ark en achetant nos pack vip !",
+
+  "tabAll": "Tous",
+  "tabVIP": "Packs VIP",
+  "tabDino": "Packs Dino",
+
+  "vip1Title": "VIP Tiers 1 – 6,99 €",
+  "vip1Desc1": "2 ✦ Potions de mutation",
+  "vip1Desc2": "2 ✦ Potions Taming",
+  "vip1Desc3": "2 ✦ Potions Instant Adulte",
+  "vip1Desc4": "Dino(s) à 2 000 ✦ Points de shop",
+  "vip1Buy": "Acheter - 6,99€",
+
+  "vip2Title": "VIP Tiers 2 – 11,99 €",
+  "vip2Desc1": "4 ✦ Potions de mutation",
+  "vip2Desc2": "4 ✦ Potions Taming",
+  "vip2Desc3": "4 ✦ Potions Instant Adulte",
+  "vip2Desc4": "Dino(s) à 4 000 ✦ Points de shop",
+  "vip2Buy": "Acheter - 11,99€",
+
+  "vip3Title": "VIP Tiers 3 – 19,99 €",
+  "vip3Desc1": "6 ✦ Potions de mutation",
+  "vip3Desc2": "6 ✦ Potions Taming",
+  "vip3Desc3": "6 ✦ Potions Instant Adulte",
+  "vip3Desc4": "1 ✦ Lust Potion",
+  "vip3Desc5": "Dino(s) à 6 000 ✦ Points de shop",
+  "vip3Buy": "Acheter - 19,99€",
+
+  "dino1Title": "Dino Tier 1 – 6,99 €",
+  "dino1Desc1": "x1 Ptéranodon 275",
+  "dino1Desc2": "x1 Raptor 275",
+  "dino1Desc3": "x1 Parasaur 275",
+  "dino1Desc4": "x1 Ichtyosaure 275",
+  "dino1Buy": "Acheter - 6,99€",
+
+  "dino2Title": "Dino Tier 2 – 11,99 €",
+  "dino2Desc1": "x1 Argentavis 275",
+  "dino2Desc2": "x1 Allosaure 275",
+  "dino2Desc3": "x1 Doedicurus 275",
+  "dino2Desc4": "x1 Baryonyx 275",
+  "dino2Buy": "Acheter - 11,99€",
+
+  "dino3Title": "Dino Tier 3 – 19,99 €",
+  "dino3Desc1": "x1 Megalodon 275",
+  "dino3Desc2": "x1 Rex 275",
+  "dino3Desc3": "x1 Ankylosaure 275",
+  "dino3Desc4": "x1 Wyvern Foudre 275",
+  "dino3Buy": "Acheter - 19,99€",
+
+  "point1Title": "5 000 points de shop – 11,99 €",
+  "point1Buy": "Acheter - 11,99€",
+
+  "point2Title": "10 000 points de shop – 19,99 €",
+  "point2Buy": "Acheter - 19,99€",
+
+  "point3Title": "20 000 points de shop – 32,99 €",
+  "point3Buy": "Acheter - 32,99€",
+
+  "point4Title": "50 000 points de shop – 59,99 €",
+  "point4Buy": "Acheter - 59,99€",
+
+  "cgvText": "Conditions Générales de Vente",
+  "footerJoin": "Rejoins notre communauté sur Discord !"
+}
