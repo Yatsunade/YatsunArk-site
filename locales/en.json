@@ -1,0 +1,54 @@
+{
+  "headerTitle": "Yatsun'ARK PvE",
+  "headerSubtitle": "Support the Yatsun'Ark team by purchasing our VIP packs!",
+
+  "tabAll": "All",
+  "tabVIP": "VIP Packs",
+  "tabDino": "Dino Packs",
+
+  "vip1Title": "VIP Tier 1 – €6,99",
+  "vip1Desc1": "2 ✦ Mutation Potions",
+  "vip1Desc2": "2 ✦ Taming Potions",
+  "vip1Desc3": "2 ✦ Instant Adult Potions",
+  "vip1Desc4": "Dino(s) worth 2,000 ✦ Shop Points",
+  "vip1Buy": "Buy - €6,99",
+
+  "vip2Title": "VIP Tier 2 – €11,99",
+  "vip2Desc1": "4 ✦ Mutation Potions",
+  "vip2Desc2": "4 ✦ Taming Potions",
+  "vip2Desc3": "4 ✦ Instant Adult Potions",
+  "vip2Desc4": "Dino(s) worth 4,000 ✦ Shop Points",
+  "vip2Buy": "Buy - €11,99",
+
+  "vip3Title": "VIP Tier 3 – €19,99",
+  "vip3Desc1": "6 ✦ Mutation Potions",
+  "vip3Desc2": "6 ✦ Taming Potions",
+  "vip3Desc3": "6 ✦ Instant Adult Potions",
+  "vip3Desc4": "1 ✦ Lust Potion",
+  "vip3Desc5": "Dino(s) worth 6,000 ✦ Shop Points",
+  "vip3Buy": "Buy - €19,99",
+
+  "dino1Title": "Dino Tier 1 – €6,99",
+  "dino1Desc1": "x1 Pteranodon 275",
+  "dino1Desc2": "x1 Raptor 275",
+  "dino1Desc3": "x1 Parasaur 275",
+  "dino1Desc4": "x1 Ichthyosaurus 275",
+  "dino1Buy": "Buy - €6,99",
+
+  "dino2Title": "Dino Tier 2 – €11,99",
+  "dino2Desc1": "x1 Argentavis 275",
+  "dino2Desc2": "x1 Allosaurus 275",
+  "dino2Desc3": "x1 Doedicurus 275",
+  "dino2Desc4": "x1 Baryonyx 275",
+  "dino2Buy": "Buy - €11,99",
+
+  "dino3Title": "Dino Tier 3 – €19,99",
+  "dino3Desc1": "x1 Megalodon 275",
+  "dino3Desc2": "x1 Rex 275",
+  "dino3Desc3": "x1 Ankylosaurus 275",
+  "dino3Desc4": "x1 Lightning Wyvern 275",
+  "dino3Buy": "Buy - €19,99",
+
+  "cgvText": "Terms of Sale",
+  "footerJoin": "Join our community on Discord!"
+}
