@@ -382,7 +382,7 @@
       </div>
      </section>
       
-      <section class="packs-grid section-points" aria-label="Packs Points Shop" style="grid-template-columns: repeat(4, 1fr);">
+      <section class="packs-grid section-points" aria-label="Packs Points Shop" 
   <div class="card">
     <img class="pack-img" src="images/5000.png" alt="5 000 Points de Shop" />
     <h2 data-i18n="point1Title">5 000 Points de shop</h2>
@@ -476,6 +476,7 @@
     const buttons = document.querySelectorAll('.tab-button');
     const vipSection = document.querySelector('.section-vip');
     const dinoSection = document.querySelector('.section-dino');
+    const pointsSection = document.querySelector('.section-points');
     const hr = document.querySelector('hr');
 
     function updateView(target) {
@@ -485,14 +486,22 @@
       if (target === 'vip') {
         vipSection.classList.remove('hidden');
         dinoSection.classList.add('hidden');
+        pointsSection.classList.add('hidden');
         hr.style.display = 'none';
       } else if (target === 'dino') {
         vipSection.classList.add('hidden');
         dinoSection.classList.remove('hidden');
+        pointsSection.classList.add('hidden');
+        hr.style.display = 'none';
+        } else if (target === 'points') {
+        vipSection.classList.add('hidden');
+        dinoSection.classList.add('hidden');
+        pointsSection.classList.remove('hidden');
         hr.style.display = 'none';
       } else {
         vipSection.classList.remove('hidden');
         dinoSection.classList.remove('hidden');
+        pointsSection.classList.remove('hidden');
         hr.style.display = 'block';
       }
     }
