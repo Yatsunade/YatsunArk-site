@@ -518,45 +518,41 @@
 
   </footer>
 
-  <script>
-    async function loadTranslations(lang) {
-      const res = await fetch(`locales/${lang}.json`);
-      const translations = await res.json();
+<script>
+  async function loadTranslations(lang) {
+    const res = await fetch(`locales/${lang}.json`);
+    const translations = await res.json();
 
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const keys = el.getAttribute("data-i18n").split(".");
-        let text = translations;
-        keys.forEach(k => text = text?.[k]);
-        if (text) el.innerHTML = text;
-      });
-
-      document.documentElement.lang = lang;
-    }
-
-    const switcher = document.getElementById("languageSwitcher");
-    switcher.addEventListener("change", () => {
-      localStorage.setItem("lang", switcher.value);
-      loadTranslations(switcher.value);
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const keys = el.getAttribute("data-i18n").split(".");
+      let text = translations;
+      keys.forEach(k => text = text?.[k]);
+      if (text) el.innerHTML = text;
     });
 
-    const savedLang = localStorage.getItem("lang") || "fr";
-    switcher.value = savedLang;
-    loadTranslations(savedLang);
-  </script>
+    document.documentElement.lang = lang;
+  }
 
-  <script>
+  const switcher = document.getElementById("languageSwitcher");
   const flagIcon = document.getElementById("flag-icon");
 
   function updateFlag(lang) {
     flagIcon.src = `images/${lang}.png`;
   }
 
+  const savedLang = localStorage.getItem("lang") || "fr";
+  switcher.value = savedLang;
+  loadTranslations(savedLang);
   updateFlag(savedLang);
 
   switcher.addEventListener("change", () => {
-    updateFlag(switcher.value);
+    const lang = switcher.value;
+    localStorage.setItem("lang", lang);
+    loadTranslations(lang);
+    updateFlag(lang);
   });
 </script>
+
 
   
   <script>
@@ -612,6 +608,7 @@
   </script>
 </body>
 </html>
+
 
 
 
