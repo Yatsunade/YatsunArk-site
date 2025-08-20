@@ -64,19 +64,19 @@
   "point4Buy": "Acheter - 59,99€",
 
   "lootbox1Title": "Lootbox Tier 1 - 29,99€",
-  "lootbox1Desc1": "4 Lootbox contenant chacune:",
+  "lootbox1Desc1": "✦ 4 Lootbox contenant chacune:",
   "lootbox1Desc2": "4 dinos aléatoires niveau 330",
   "lootbox1Desc3 ": "1 stack aléatoire de ressources",
   "lootbox1Buy": "Acheter - 29,99€",
 
   "lootbox2Title": "Lootbox Tier 2 - 49,99€",
-  "lootbox2Desc1": "8 Lootbox contenant chacune:",
+  "lootbox2Desc1": "✦ 8 Lootbox contenant chacune:",
   "lootbox2Desc2": "4 dinos aléatoires niveau 330",
   "lootbox2Desc3 ": "1 stack aléatoire de ressources",
   "lootbox2Buy": "Acheter - 49,99€",
 
   "lootbox3Title": "Lootbox Tier 3 - 69,99€",
-  "lootbox3Desc1": "12 Lootbox contenant chacune:",
+  "lootbox3Desc1": "✦ 12 Lootbox contenant chacune:",
   "lootbox3Desc2": "4 dinos aléatoires niveau 330",
   "lootbox3Desc3 ": "1 stack aléatoire de ressources",
   "lootbox3Buy": "Acheter - 69,99€",
@@ -84,6 +84,7 @@
   "cgvText": "Conditions Générales de Vente",
   "footerJoin": "Rejoins notre communauté sur Discord !"
 }
+
 
 
 
