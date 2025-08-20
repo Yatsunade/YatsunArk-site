@@ -561,7 +561,7 @@
     const dinoSection = document.querySelector('.section-dino');
     const pointsSection = document.querySelector('.section-points');
     const lootboxSection = document.querySelector('.section-lootbox');
-    const hr = document.querySelector('hr');
+    const hr = document.querySelectorAll('hr');
 
     function updateView(target) {
       buttons.forEach(btn => btn.classList.remove('active'));
@@ -572,31 +572,31 @@
         dinoSection.classList.add('hidden');
         pointsSection.classList.add('hidden');
         lootboxSection.classList.add('hidden');
-        hr.style.display = 'none';
+        hrs.forEach(h => h.style.display = 'none');
       } else if (target === 'dino') {
         vipSection.classList.add('hidden');
         dinoSection.classList.remove('hidden');
         pointsSection.classList.add('hidden');
         lootboxSection.classList.add('hidden');
-        hr.style.display = 'none';
+        hrs.forEach(h => h.style.display = 'none');
         } else if (target === 'points') {
         vipSection.classList.add('hidden');
         dinoSection.classList.add('hidden');
         pointsSection.classList.remove('hidden');
         lootboxSection.classList.add('hidden');
-        hr.style.display = 'none';
+        hrs.forEach(h => h.style.display = 'none');
         } else if (target === 'lootbox') {
         vipSection.classList.add('hidden');
         dinoSection.classList.add('hidden');
         pointsSection.classList.add('hidden');
         lootboxSection.classList.remove('hidden');
-        hr.style.display = 'none';
+        hrs.forEach(h => h.style.display = 'none');
       } else {
         vipSection.classList.remove('hidden');
         dinoSection.classList.remove('hidden');
         pointsSection.classList.remove('hidden');
         lootboxSection.classList.remove('hidden');
-        hr.style.display = 'block';
+        hrs.forEach(h => h.style.display = 'block');
       }
     }
 
@@ -608,6 +608,7 @@
   </script>
 </body>
 </html>
+
 
 
 
