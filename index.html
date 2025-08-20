@@ -564,6 +564,7 @@
     const vipSection = document.querySelector('.section-vip');
     const dinoSection = document.querySelector('.section-dino');
     const pointsSection = document.querySelector('.section-points');
+    const lootboxSection = document.querySelector('.section-lootbox');
     const hr = document.querySelector('hr');
 
     function updateView(target) {
@@ -574,13 +575,22 @@
         vipSection.classList.remove('hidden');
         dinoSection.classList.add('hidden');
         pointsSection.classList.add('hidden');
+        lootboxSection.classList.add('hidden');
         hr.style.display = 'none';
       } else if (target === 'dino') {
         vipSection.classList.add('hidden');
         dinoSection.classList.remove('hidden');
         pointsSection.classList.add('hidden');
+        lootboxSection.classList.add('hidden');
         hr.style.display = 'none';
         } else if (target === 'points') {
+        vipSection.classList.add('hidden');
+        dinoSection.classList.add('hidden');
+        pointsSection.classList.remove('hidden');
+        lootboxSection.classList.add('hidden');
+        hr.style.display = 'none';
+        } else if (target === 'lootbox') {
+        lootboxSection.classList.remove('hidden');
         vipSection.classList.add('hidden');
         dinoSection.classList.add('hidden');
         pointsSection.classList.remove('hidden');
@@ -589,6 +599,7 @@
         vipSection.classList.remove('hidden');
         dinoSection.classList.remove('hidden');
         pointsSection.classList.remove('hidden');
+        lootboxSection.classList.remove('hidden');
         hr.style.display = 'block';
       }
     }
@@ -601,6 +612,7 @@
   </script>
 </body>
 </html>
+
 
 
 
