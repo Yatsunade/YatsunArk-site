@@ -64,19 +64,19 @@
   "point4Buy": "Buy - €59,99",
 
   "lootbox1Title": "Lootbox Tier 1 - €29.99",
-  "lootbox1Desc1": "4 Lootboxes each containing:",
+  "lootbox1Desc1": "✦ 4 Lootboxes each containing:",
   "lootbox1Desc2": "4 random dinosaurs level 330",
   "lootbox1Desc3": "1 random stack of resources",
   "lootbox1Buy": "Buy - €29.99",
 
   "lootbox2Title": "Lootbox Tier 2 - €49.99",
-  "lootbox2Desc1": "8 Lootboxes each containing:",
+  "lootbox2Desc1": "✦ 8 Lootboxes each containing:",
   "lootbox2Desc2": "4 random dinosaurs level 330",
   "lootbox2Desc3": "1 random stack of resources",
   "lootbox2Buy": "Buy - €49.99",
 
   "lootbox3Title": "Lootbox Tier 3 - €69.99",
-  "lootbox3Desc1": "12 Lootboxes each containing:",
+  "lootbox3Desc1": "✦ 12 Lootboxes each containing:",
   "lootbox3Desc2": "4 random dinosaurs level 330",
   "lootbox3Desc3": "1 random stack of resources",
   "lootbox3Buy": "Buy - €69.99",
@@ -84,6 +84,7 @@
   "cgvText": "Terms of Sale",
   "footerJoin": "Join our community on Discord!"
 }
+
 
 
 
