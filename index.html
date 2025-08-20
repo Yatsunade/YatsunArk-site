@@ -517,6 +517,47 @@
     <div class="footer-left">© 2025 Yatsun’Ark. All rights reserved.</div>
 
   </footer>
+
+  <script>
+    async function loadTranslations(lang) {
+      const res = await fetch(`locales/${lang}.json`);
+      const translations = await res.json();
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const keys = el.getAttribute("data-i18n").split(".");
+        let text = translations;
+        keys.forEach(k => text = text?.[k]);
+        if (text) el.innerHTML = text;
+      });
+
+      document.documentElement.lang = lang;
+    }
+
+    const switcher = document.getElementById("languageSwitcher");
+    switcher.addEventListener("change", () => {
+      localStorage.setItem("lang", switcher.value);
+      loadTranslations(switcher.value);
+    });
+
+    const savedLang = localStorage.getItem("lang") || "fr";
+    switcher.value = savedLang;
+    loadTranslations(savedLang);
+  </script>
+
+  <script>
+  const flagIcon = document.getElementById("flag-icon");
+
+  function updateFlag(lang) {
+    flagIcon.src = `images/${lang}.png`;
+  }
+
+  updateFlag(savedLang);
+
+  switcher.addEventListener("change", () => {
+    updateFlag(switcher.value);
+  });
+</script>
+
   
   <script>
     const buttons = document.querySelectorAll('.tab-button');
@@ -569,49 +610,8 @@
       });
     });
   </script>
-
-    <script>
-  (function () {
-    const switcher = document.getElementById('languageSwitcher');
-    const flagIcon = document.getElementById('flag-icon');
-
-    async function applyLang(lang) {
-      try {
-        const res = await fetch(`locales/${lang}.json`, { cache: 'no-cache' });
-        const translations = await res.json();
-
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-          const path = el.getAttribute('data-i18n').split('.');
-          let val = translations;
-          for (const p of path) { val = val && val[p]; }
-          if (typeof val === 'string') el.innerHTML = val;
-        });
-
-        document.documentElement.lang = lang;
-        if (flagIcon) flagIcon.src = `images/${lang}.png`;
-      } catch (e) {
-        console.error('Erreur i18n:', e);
-      }
-    }
-
-    if (!switcher) return;
-
-    const saved = localStorage.getItem('lang') || 'fr';
-    switcher.value = saved;
-    applyLang(saved);
-
-    switcher.addEventListener('change', (e) => {
-      const lang = e.target.value;
-      localStorage.setItem('lang', lang);
-      applyLang(lang);
-    });
-  })();
-  </script>
 </body>
 </html>
-
-
-
 
 
 
