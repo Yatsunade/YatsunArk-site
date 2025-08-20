@@ -553,73 +553,56 @@
   });
 </script>
 
+<script>
+  const buttons = document.querySelectorAll('.tab-button');
+  const vipSection = document.querySelector('.section-vip');
+  const dinoSection = document.querySelector('.section-dino');
+  const pointsSection = document.querySelector('.section-points');
+  const lootboxSection = document.querySelector('.section-lootbox');
+  const hrs = document.querySelectorAll('hr');
 
-  
-  <script>
-    const buttons = document.querySelectorAll('.tab-button');
-    const vipSection = document.querySelector('.section-vip');
-    const dinoSection = document.querySelector('.section-dino');
-    const pointsSection = document.querySelector('.section-points');
-    const lootboxSection = document.querySelector('.section-lootbox');
-    const hr = document.querySelector('hr');
+  function updateView(target) {
+    buttons.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.tab-button[data-target="${target}"]`).classList.add('active');
 
-    function updateView(target) {
-      buttons.forEach(btn => btn.classList.remove('active'));
-      document.querySelector(`.tab-button[data-target="${target}"]`).classList.add('active');
-
-      if (target === 'vip') {
-        vipSection.classList.remove('hidden');
-        dinoSection.classList.add('hidden');
-        pointsSection.classList.add('hidden');
-        lootboxSection.classList.add('hidden');
-        hr.style.display = 'none';
-      } else if (target === 'dino') {
-        vipSection.classList.add('hidden');
-        dinoSection.classList.remove('hidden');
-        pointsSection.classList.add('hidden');
-        lootboxSection.classList.add('hidden');
-        hr.style.display = 'none';
-        } else if (target === 'points') {
-        vipSection.classList.add('hidden');
-        dinoSection.classList.add('hidden');
-        pointsSection.classList.remove('hidden');
-        lootboxSection.classList.add('hidden');
-        hr.style.display = 'none';
-        } else if (target === 'lootbox') {
-        vipSection.classList.add('hidden');
-        dinoSection.classList.add('hidden');
-        pointsSection.classList.add('hidden');
-        lootboxSection.classList.remove('hidden');
-        hr.style.display = 'none';
-      } else {
-        vipSection.classList.remove('hidden');
-        dinoSection.classList.remove('hidden');
-        pointsSection.classList.remove('hidden');
-        lootboxSection.classList.remove('hidden');
-        hr.style.display = 'block';
-      }
+    if (target === 'vip') {
+      vipSection.classList.remove('hidden');
+      dinoSection.classList.add('hidden');
+      pointsSection.classList.add('hidden');
+      lootboxSection.classList.add('hidden');
+      hrs.forEach(h => h.style.display = 'none');
+    } else if (target === 'dino') {
+      vipSection.classList.add('hidden');
+      dinoSection.classList.remove('hidden');
+      pointsSection.classList.add('hidden');
+      lootboxSection.classList.add('hidden');
+      hrs.forEach(h => h.style.display = 'none');
+    } else if (target === 'points') {
+      vipSection.classList.add('hidden');
+      dinoSection.classList.add('hidden');
+      pointsSection.classList.remove('hidden');
+      lootboxSection.classList.add('hidden');
+      hrs.forEach(h => h.style.display = 'none');
+    } else if (target === 'lootbox') {
+      vipSection.classList.add('hidden');
+      dinoSection.classList.add('hidden');
+      pointsSection.classList.add('hidden');
+      lootboxSection.classList.remove('hidden');
+      hrs.forEach(h => h.style.display = 'none');
+    } else {
+      vipSection.classList.remove('hidden');
+      dinoSection.classList.remove('hidden');
+      pointsSection.classList.remove('hidden');
+      lootboxSection.classList.remove('hidden');
+      hrs.forEach(h => h.style.display = 'block');
     }
+  }
 
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        updateView(btn.dataset.target);
-      });
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      updateView(btn.dataset.target);
     });
-  </script>
+  });
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
